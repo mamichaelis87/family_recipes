@@ -5,13 +5,13 @@
 <h3>Ingredients</h3>
 <ul>
   <% @recipe.ingredients.each do |i| %>
-    <li><%= i.name %> <%= i.type %></li>
+    <li><%= i.name %>, <%= i.measurement_amount %> <%= i.measurement_type %></li>
   <% end %>
 </ul>
 <h3>Steps</h3>
-<ul>
+<ol>
   <% @recipe.steps.each do |s| %>
-    <li><%= s.step_number %> <%= s.instructions %></li>
+    <li><%= s.instructions %></li>
   <% end %>
-</ul>
+</ol>
 <%= link_to "Home", recipes_path %>
