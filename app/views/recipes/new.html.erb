@@ -1,0 +1,50 @@
+<h2>New Recipe Form</h2>
+<%= form_with model: @recipe do |form| %>
+  <div>
+    <%= form.label :name, "Name" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :type, "Type" %>
+    <%= form.text_field :type %> # make into a drop down
+  </div>
+  <div>
+    <%= form.label :culture, "Culture" %>
+    <%= form.text_field :culture %>
+  </div>
+  <div>
+    <%= form.label :prep_hours, "Hours needed to prep"%>
+    <%= form.number_field :prep_hours %>
+  </div>
+  <div>
+    <%= form.label :prep_minutes, "Minutes needed to prep" %>
+    <%= form.number_field :prep_minutes %>
+  </div>
+  <div>
+    <%= form.label :servings, "Number of Servings" %>
+    <%= form.number_field :servings %>
+  </div>
+  <h3>Ingredients</h3>
+  <%= form.fields_for :ingredients do |ingredients_form|%>
+    <div>
+      <%= ingredients_form.label :name, "Name" %>
+      <%= ingredients_form.text_field :name %>
+    </div>
+    <div>
+      <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
+      <%= ingredients_form.text_field :measurement_amount %>
+      <%= ingredients_form.label :measurement_type, "Measurement Type" %>
+      <%= ingredients_form.text_field :measurement_type %>
+    </div>
+  <% end %>
+  <h3>Steps</h3>
+  <ol>
+    <%= form.fields_for :steps do |steps_form|%>
+    <li>
+      <%= steps_form.label :instructions, "Instructions" %>
+      <%= steps_form.text_field :instructions %>
+    </li>
+    <% end %>
+  </ol>
+  <%= form.submit "Submit Recipe" %>
+<% end %>
