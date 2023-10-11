@@ -1,4 +1,7 @@
 <h1><%= @recipe.name %></h1>
+<p><%= @recipe.culture %>, <%= @recipe.type %></p>
+<p>Prep time: <%= @recipe.prep_hours%> hours, <%= @recipe.prep_minutes%> minutes</p>
+<p><%= @recipe.servings %> servings</p>
 <h3>Ingredients</h3>
 <ul>
   <% @recipe.ingredients.each do |i| %>
