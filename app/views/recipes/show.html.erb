@@ -1,0 +1,14 @@
+<h1><%= @recipe.name %></h1>
+<h3>Ingredients</h3>
+<ul>
+  <% @recipe.ingredients.each do |i| %>
+    <li><%= i.name %> <%= i.type %></li>
+  <% end %>
+</ul>
+<h3>Steps</h3>
+<ul>
+  <% @recipe.steps.each do |s| %>
+    <li><%= s.step_number %> <%= s.instructions %></li>
+  <% end %>
+</ul>
+<%= link_to "Home", recipes_path %>

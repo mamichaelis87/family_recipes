@@ -3,6 +3,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def show
+    @recipe = Recipes.find(params[:id])
+  end
+
   def new
     @recipe = Recipe.new
   end
