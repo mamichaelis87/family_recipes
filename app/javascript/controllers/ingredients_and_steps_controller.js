@@ -9,6 +9,7 @@ export default class extends Controller {
     }
 
   addIngredient() {
+    console.log("add ingredient")
     const clone = this.ingredientTemplateTarget.content.cloneNode(true)
     clone.querySelector("div>:nth-child(2)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][name]`)
     clone.querySelector("div>:nth-child(4)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][measurement_amount]`)
@@ -18,6 +19,7 @@ export default class extends Controller {
   }
 
   removeIngredient() {
+    console.log("remove ingredient")
     if (this.ingredientsValue > 1) {
     this.warningTarget.textContent = ""
     this.ingredientListTarget.removeChild(this.ingredientListTarget.lastElementChild)
@@ -29,6 +31,7 @@ export default class extends Controller {
   }
 
   addStep() {
+    console.log("add step")
     const clone = this.stepTemplateTarget.content.cloneNode(true)
     clone.querySelector("li>:nth-child(2)").setAttribute("name",`recipe[steps_attributes][${this.stepsValue}][instructions]`)
     this.stepListTarget.appendChild(clone)
@@ -36,6 +39,7 @@ export default class extends Controller {
   }
 
   removeStep() {
+    console.log("remove step")
     if (this.stepsValue > 1) {
     this.warningTarget.textContent = ""
     this.stepListTarget.removeChild(this.stepListTarget.lastElementChild)
