@@ -54,17 +54,17 @@
   </div>
   
   <h3>Steps</h3>
-  <ol data-ingredients-and-steps-target="stepsList">
+  <ol data-ingredients-and-steps-target="stepList">
     <%= form.fields_for :steps do |steps_form|%>
     <template data-ingredients-and-steps-target="stepTemplate">
       <li data-ingredients-and-steps-target="step">
         <%= steps_form.label :instructions, "Instructions" %>
-        <%= steps_form.text_field :instructions %>
+        <%= steps_form.text_area :instructions %>
       </li>
     </template>
     <li data-ingredients-and-steps-target="step">
       <%= steps_form.label :instructions, "Instructions" %>
-      <%= steps_form.text_field :instructions %>
+      <%= steps_form.text_area :instructions %>
     </li>
     <% end %>
   </ol>
