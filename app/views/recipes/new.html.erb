@@ -1,5 +1,5 @@
 <h2>New Recipe Form</h2>
-<div data-controller="ingredients-and-steps" >
+<div data-controller="ingredients-and-steps" data-ingredients-and-steps-ingredients-value="1" data-ingredients-and-steps-steps-value="1">
 <%= form_with model: @recipe do |form| %>
   <div>
     <%= form.label :name, "Name" %>
@@ -33,8 +33,6 @@
           <div>
             <%= ingredients_form.label :name, "Name" %>
             <%= ingredients_form.text_field :name %>
-          </div>
-          <div>
             <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
             <%= ingredients_form.number_field :measurement_amount %>
             <%= ingredients_form.label :measurement_type, "Measurement Type" %>
@@ -46,8 +44,6 @@
         <div>
           <%= ingredients_form.label :name, "Name" %>
           <%= ingredients_form.text_field :name %>
-        </div>
-        <div>
           <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
           <%= ingredients_form.number_field :measurement_amount %>
           <%= ingredients_form.label :measurement_type, "Measurement Type" %>
@@ -58,23 +54,20 @@
   </div>
   
   <h3>Steps</h3>
-  <div data-ingredients-and-steps-target="stepsList">
-    <ol>
-      <%= form.fields_for :steps do |steps_form|%>
-      <template data-ingredients-and-steps-target="stepTemplate">
-        <li data-ingredients-and-steps-target="step">
-          <%= steps_form.label :instructions, "Instructions" %>
-          <%= steps_form.text_field :instructions %>
-        </li>
-      </template>
+  <ol data-ingredients-and-steps-target="stepsList">
+    <%= form.fields_for :steps do |steps_form|%>
+    <template data-ingredients-and-steps-target="stepTemplate">
       <li data-ingredients-and-steps-target="step">
         <%= steps_form.label :instructions, "Instructions" %>
         <%= steps_form.text_field :instructions %>
       </li>
-      <% end %>
-    </ol>
-  </div>
-  
+    </template>
+    <li data-ingredients-and-steps-target="step">
+      <%= steps_form.label :instructions, "Instructions" %>
+      <%= steps_form.text_field :instructions %>
+    </li>
+    <% end %>
+  </ol>
 <%= form.submit "Submit Recipe" %>
 <% end %>
 <div>
