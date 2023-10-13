@@ -28,7 +28,8 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    
+    @recipe.ingredients.destroy_all
+    @recipe.steps.destroy_all
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
