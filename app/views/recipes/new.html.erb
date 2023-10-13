@@ -1,4 +1,5 @@
 <h2>New Recipe Form</h2>
+<div data-controller="ingredients-and-steps" >
 <%= form_with model: @recipe do |form| %>
   <div>
     <%= form.label :name, "Name" %>
@@ -25,26 +26,64 @@
     <%= form.number_field :servings %>
   </div>
   <h3>Ingredients</h3>
-  <%= form.fields_for :ingredients do |ingredients_form|%>
-    <div>
-      <%= ingredients_form.label :name, "Name" %>
-      <%= ingredients_form.text_field :name %>
-    </div>
-    <div>
-      <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
-      <%= ingredients_form.number_field :measurement_amount %>
-      <%= ingredients_form.label :measurement_type, "Measurement Type" %>
-      <%= ingredients_form.text_field :measurement_type %>
-    </div>
-  <% end %>
-  <h3>Steps</h3>
-  <ol>
-    <%= form.fields_for :steps do |steps_form|%>
-    <li>
-      <%= steps_form.label :instructions, "Instructions" %>
-      <%= steps_form.text_field :instructions %>
-    </li>
+  <div data-ingredients-and-steps-target="ingredientList">
+    <%= form.fields_for :ingredients do |ingredients_form|%>
+      <template data-ingredients-and-steps-target="ingredientTemplate">
+        <div data-ingredients-and-steps-target="ingredient">
+          <div>
+            <%= ingredients_form.label :name, "Name" %>
+            <%= ingredients_form.text_field :name %>
+          </div>
+          <div>
+            <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
+            <%= ingredients_form.number_field :measurement_amount %>
+            <%= ingredients_form.label :measurement_type, "Measurement Type" %>
+            <%= ingredients_form.text_field :measurement_type %>
+          </div>
+        </div>
+      </template>
+      <div data-ingredients-and-steps-target="ingredient">
+        <div>
+          <%= ingredients_form.label :name, "Name" %>
+          <%= ingredients_form.text_field :name %>
+        </div>
+        <div>
+          <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
+          <%= ingredients_form.number_field :measurement_amount %>
+          <%= ingredients_form.label :measurement_type, "Measurement Type" %>
+          <%= ingredients_form.text_field :measurement_type %>
+        </div>
+      </div>
     <% end %>
-  </ol>
-  <%= form.submit "Submit Recipe" %>
+  </div>
+  
+  <h3>Steps</h3>
+  <div data-ingredients-and-steps-target="stepsList">
+    <ol>
+      <%= form.fields_for :steps do |steps_form|%>
+      <template data-ingredients-and-steps-target="stepTemplate">
+        <li data-ingredients-and-steps-target="step">
+          <%= steps_form.label :instructions, "Instructions" %>
+          <%= steps_form.text_field :instructions %>
+        </li>
+      </template>
+      <li data-ingredients-and-steps-target="step">
+        <%= steps_form.label :instructions, "Instructions" %>
+        <%= steps_form.text_field :instructions %>
+      </li>
+      <% end %>
+    </ol>
+  </div>
+  
+<%= form.submit "Submit Recipe" %>
 <% end %>
+<div>
+  <button data-action="ingredients-and-steps#addIngredient">Add Ingredient</button>
+  <button data-action="ingredients-and-steps#removeIngredient">Remove Ingredient</button>
+</div>
+<div>
+  <button data-action="ingredients-and-steps#addStep">Add Step</button>
+  <button data-action="ingredients-and-steps#removeStep">Remove Step</button>
+</div>
+<div data-ingredients-and-steps-target="warning"></div>
+</div>
