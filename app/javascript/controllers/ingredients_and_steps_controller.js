@@ -22,6 +22,9 @@ export default class extends Controller {
     console.log("remove ingredient")
     if (this.ingredientsValue > 1) {
     this.warningTarget.textContent = ""
+    while(this.ingredientListTarget.lastElementChild.nodeName !== "DIV") {
+      this.ingredientListTarget.removeChild(this.ingredientListTarget.lastElementChild)
+    }
     this.ingredientListTarget.removeChild(this.ingredientListTarget.lastElementChild)
     this.ingredientsValue--
     }
@@ -42,6 +45,9 @@ export default class extends Controller {
     console.log("remove step")
     if (this.stepsValue > 1) {
     this.warningTarget.textContent = ""
+    while(this.stepListTarget.lastElementChild.nodeName !== "LI") {
+      this.stepListTarget.removeChild(this.stepListTarget.lastElementChild)
+    }
     this.stepListTarget.removeChild(this.stepListTarget.lastElementChild)
     this.stepsValue--
     }
