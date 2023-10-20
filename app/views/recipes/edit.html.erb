@@ -7,7 +7,7 @@
   </div>
   <div>
     <%= form.label :meal_type, "Type" %>
-    <%= form.text_field :meal_type %> # make into a drop down
+    <%= form.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Drink"] %>
   </div>
   <div>
     <%= form.label :culture, "Culture" %>
