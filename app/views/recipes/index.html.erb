@@ -1,7 +1,13 @@
 <h1>Michaelis' Family Recipes</h1>
-<%= link_to "Add a recipe", new_recipe_path %>
+<div class="search-form">
+  <%= render "recipes/search_form" %>
+</div>
+
+<h3>Recipes</h3>
 <ul>
   <% @recipes.each do |recipe| %>
     <li><%= link_to recipe.name, recipe_path(recipe) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Add a recipe", new_recipe_path %>

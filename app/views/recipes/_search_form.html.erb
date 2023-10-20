@@ -1,0 +1,16 @@
+<h3>Search for a recipe: </h3> 
+  <%= form_with url: "/recipes", method: :get do |form| %>
+    <div>
+    <p>By name: </p>
+    <span>
+      <%= form.text_field :name %>
+    </span></div>
+    <div>
+      <p>Or by type: </p>
+    <span>
+      <%= form.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Drink"]%>
+    </span>
+    <span>
+      <%= form.select :culture, Recipe.distinct.pluck(:culture) %>
+    </span></div>
+  <% end %>
