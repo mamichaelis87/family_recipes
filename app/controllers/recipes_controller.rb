@@ -1,6 +1,12 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    if params[:name]
+      # recipes where name includes searched word
+    elsif params[:meal_type]
+      @recipes = Recipe.where(meal_type: params[:meal_type])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -42,4 +48,5 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :meal_type, :culture, :prep_hours, :prep_minutes, :servings, ingredients_attributes: [:name, :measurement_amount, :measurement_type], steps_attributes: [:instructions])
   end
+
 end
