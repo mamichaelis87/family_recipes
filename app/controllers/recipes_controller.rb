@@ -2,10 +2,11 @@ class RecipesController < ApplicationController
   def index
     if params[:name]
       # recipes where name includes searched word
+      @recipes = Recipe.where(name: params[:name]).order(:name)
     elsif params[:meal_type]
-      @recipes = Recipe.where(meal_type: params[:meal_type])
+      @recipes = Recipe.where(meal_type: params[:meal_type]).order(:name)
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.all.order(:name)
     end
   end
 
