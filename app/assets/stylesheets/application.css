@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+  --light-red: #DD5353;
+  --dark-red: #B73E3E;
+  --warm-tan: #EDDBC0;
+  --cool-tan: #DBC8AC;
+}
+
+body {
+  background-color: var(--warm-tan);
+  margin: 0;
+  color: rgb(36, 36, 100);
+}
+
+ .header {
+  background-color: var(--light-red);
+  padding: .5rem;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+ }
+
+ .header h1 {
+  margin: 0;
+  
+ }
+
+ .buttons-container {
+  display: flex;
+  gap: .25rem;
+  margin-top: .25rem;
+  padding: .25rem;
+  width: fit-content;
+ }
