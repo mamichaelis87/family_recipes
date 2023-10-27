@@ -1,10 +1,9 @@
 <%= form_with url: "/recipes", method: :get do |form| %>
   <div>
     <span class="container">
-      <%= form.label :name, "Search for a recipe" %>
       <%= form.text_field :name %>
     </span>
-    <%= form.submit "Search" %>
+    <%= form.submit "Search Recipes" %>
   </div> 
 <% end %>
     
