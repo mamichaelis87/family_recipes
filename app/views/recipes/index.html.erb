@@ -1,9 +1,7 @@
-<div class="search-form container">
-  <%= render "recipes/search_form" %>
-</div>
 <div class="recipes container">
   <div class="recipe-list">
     <h3>Recipes</h3>
+    <%= render "recipes/meal_types" %>
     <ul>
       <% @recipes.each do |recipe| %>
         <li><%= link_to recipe.name, recipes_path(:chosen_recipe => recipe) %></li>

@@ -31,6 +31,8 @@ body {
 background-color: var(--light-red);
 padding: .5rem;
 box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+display: flex;
+justify-content: space-between;
 }
 
 .container {

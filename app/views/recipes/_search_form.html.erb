@@ -1,20 +1,11 @@
-<h3>Search for a recipe: </h3> 
-  <%= form_with url: "/recipes", method: :get do |form| %>
-    <div>
-      <span>
-        <%= form.text_field :name %>
-      </span>
-      <%= form.submit "Search" %>
-    </div> 
-  <% end %>
-<div class="buttons-container">
-    <%= button_to "All", recipes_path, method: :get %>
-    <%= button_to "Breakfast", recipes_path, method: :get, params: {meal_type: "Breakfast"} %>
-    <%= button_to "Lunch", recipes_path, method: :get, params: {meal_type: "Lunch"} %>
-    <%= button_to "Dinner", recipes_path, method: :get, params: {meal_type: "Dinner"} %>
-    <%= button_to "Snack", recipes_path, method: :get, params: {meal_type: "Snack"} %>
-    <%= button_to "Dessert", recipes_path, method: :get, params: {meal_type: "Dessert"} %>
-    <%= button_to "Drink", recipes_path, method: :get, params: {meal_type: "Drink"} %>
-</div>
+<%= form_with url: "/recipes", method: :get do |form| %>
+  <div>
+    <span class="container">
+      <%= form.label :name, "Search for a recipe" %>
+      <%= form.text_field :name %>
+    </span>
+    <%= form.submit "Search" %>
+  </div> 
+<% end %>
     
  
