@@ -46,7 +46,7 @@ justify-content: space-between;
 }
 
 .recipe-list {
-  width: max-content;
+  max-width: max-content;
 }
 
  .buttons-container {
@@ -55,6 +55,7 @@ justify-content: space-between;
   margin-top: .25rem;
   padding: .25rem;
   flex-wrap: wrap;
+  max-width: 240px;
  }
 
 .recipe-display {
