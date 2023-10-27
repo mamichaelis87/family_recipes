@@ -8,6 +8,12 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.all.order(:name)
     end
+    if params[:chosen_recipe]
+      @chosen_recipe = Recipe.find(params[:chosen_recipe])
+    else
+      ids = Recipe.pluck(:id)
+      @chosen_recipe = Recipe.find(ids.sample)
+    end
   end
 
   def show

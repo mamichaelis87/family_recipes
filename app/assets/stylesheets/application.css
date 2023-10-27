@@ -27,15 +27,23 @@ body {
   color: rgb(36, 36, 100);
 }
 
+.header {
+background-color: var(--light-red);
+padding: .5rem;
+box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+}
+
 .container {
   padding: .5rem;
 }
 
- .header {
-  background-color: var(--light-red);
-  padding: .5rem;
-  box-shadow: 0 2px 2px rgba(0,0,0,0.4);
- }
+.recipes {
+  display: flex;
+}
+
+.recipe-display {
+  margin-left: 2rem;
+}
 
  .header h1 {
   margin: 0;

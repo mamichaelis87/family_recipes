@@ -1,15 +1,19 @@
-<div class="header">
-  <h1>Michaelis' Family Recipes</h1>
-</div>
-<div class="search-form">
+<div class="search-form container">
   <%= render "recipes/search_form" %>
 </div>
-
-<h3>Recipes</h3>
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-  <% end %>
-</ul>
-
-<%= link_to "Add a recipe", new_recipe_path %>
+<div class="recipes container">
+  <div class="recipe-list">
+    <h3>Recipes</h3>
+    <ul>
+      <% @recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, recipes_path(:chosen_recipe => recipe) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="recipe-display">
+    <%= render "recipes/display", :recipe => @chosen_recipe %>
+  </div>
+</div>
+<div class="container">
+  <%= link_to "Add a recipe", new_recipe_path %>
+</div>
