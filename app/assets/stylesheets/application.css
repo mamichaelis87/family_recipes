@@ -41,6 +41,8 @@ justify-content: space-between;
 
 .recipes {
   display: flex;
+  padding: .5rem;
+  padding-top: 1rem;
 }
 
  .buttons-container {
@@ -54,6 +56,13 @@ justify-content: space-between;
 .recipe-display {
   margin-left: 2rem;
   flex-grow: 1;
+  background-color: #DD5353;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.recipe-display h1 {
+  margin: 0;
 }
 
  .header h1 {
