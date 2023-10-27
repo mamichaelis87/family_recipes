@@ -1,8 +1,10 @@
 <div class="recipes container">
-  <div class="recipe-list">
+  <div class="recipe-choices">
     <h3>Recipes</h3>
-    <%= render "recipes/meal_types" %>
-    <ul>
+    <div class="meal-types">
+      <%= render "recipes/meal_types" %>
+    </div>
+    <ul class="recipe-list">
       <% @recipes.each do |recipe| %>
         <li><%= link_to recipe.name, recipes_path(:chosen_recipe => recipe) %></li>
       <% end %>

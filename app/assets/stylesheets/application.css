@@ -45,12 +45,16 @@ justify-content: space-between;
   padding-top: 1rem;
 }
 
+.recipe-list {
+  width: max-content;
+}
+
  .buttons-container {
   display: flex;
   gap: .25rem;
   margin-top: .25rem;
   padding: .25rem;
-  width: fit-content;
+  flex-wrap: wrap;
  }
 
 .recipe-display {
