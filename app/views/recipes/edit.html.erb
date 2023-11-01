@@ -10,6 +10,10 @@
     <%= form.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Drink"] %>
   </div>
   <div>
+    <%= form.label :protein, "Protein" %>
+    <%= form.select :protein, ["Poultry", "Red Meat", "Seafood", "Vegetarian"] %>
+  </div>
+  <div>
     <%= form.label :culture, "Culture" %>
     <%= form.text_field :culture %>
   </div>
