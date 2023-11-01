@@ -81,6 +81,7 @@ justify-content: space-between;
   background-color: #DD5353;
   padding: 1rem;
   border-radius: 1rem;
+  max-height: 500px;
 }
 
 .recipe {
@@ -91,6 +92,7 @@ justify-content: space-between;
   padding: .5rem;
   max-width: 20%;
   margin-right: 1rem;
+  overflow-y: auto;
 }
 
 .ingredient-list {
@@ -99,16 +101,17 @@ justify-content: space-between;
 
 .recipe-steps {
   max-width: 75%;
+  overflow-y: auto;
 }
 
-.step-list {
+.step-list-box {
   padding-left: 1rem;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 }
 
-.step {
+.step-box {
   padding: .25rem;
   margin: .25rem;
 }
