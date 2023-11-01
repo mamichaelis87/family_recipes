@@ -36,7 +36,7 @@ export default class extends Controller {
   addStep() {
     console.log("add step")
     const clone = this.stepTemplateTarget.content.cloneNode(true)
-    clone.querySelector("li>:nth-child(2)").setAttribute("name",`recipe[steps_attributes][${this.stepsValue}][instructions]`)
+    clone.querySelector("li>:nth-child(1)").setAttribute("name",`recipe[steps_attributes][${this.stepsValue}][instructions]`)
     this.stepListTarget.appendChild(clone)
     this.stepsValue++
   }
