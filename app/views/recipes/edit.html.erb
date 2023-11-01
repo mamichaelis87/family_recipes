@@ -27,7 +27,7 @@
             <%= ingredients_form.text_field :name %>
             <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
             <%= ingredients_form.number_field :measurement_amount %>
-            <%= ingredients_form.label :measurement_type, "Measurement Type" %>
+            <%= ingredients_form.label :measurement_type, "Unit" %>
             <%= ingredients_form.text_field :measurement_type %>
           </div>
         </div>
@@ -48,12 +48,10 @@
     <%= form.fields_for :steps do |steps_form|%>
     <template data-ingredients-and-steps-target="stepTemplate">
       <li data-ingredients-and-steps-target="step">
-        <%= steps_form.label :instructions, "Instructions" %>
         <%= steps_form.text_area :instructions %>
       </li>
     </template>
     <li data-ingredients-and-steps-target="step">
-      <%= steps_form.label :instructions, "Instructions" %>
       <%= steps_form.text_area :instructions %>
     </li>
     <% end %>
