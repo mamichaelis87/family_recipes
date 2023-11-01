@@ -1,4 +1,7 @@
 <h1><%= recipe.name %></h1>
+<% unless recipe.author == "" %>
+  <p>A recipe from <%= recipe.author %></p>
+<% end %>
 <p><%= recipe.culture %> <%= recipe.meal_type %></p>
 <p><%= recipe.servings %> servings</p>
 <h3>Ingredients</h3>

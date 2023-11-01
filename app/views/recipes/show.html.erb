@@ -1,9 +1,3 @@
-<div class="recipe-display">
-    <%= render "recipes/display", :recipe => @recipe %>
-  </div>
 <div>
-  <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
-</div>
-<div>
-  <%= link_to "Home", recipes_path %>
+  <%= render "recipes/display", :recipe => @recipe %>
 </div>

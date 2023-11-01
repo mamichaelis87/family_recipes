@@ -6,6 +6,10 @@
     <%= form.text_field :name %>
   </div>
   <div>
+    <%= form.label :author, "Author" %>
+    <%= form.text_field :author %>
+  </div>
+  <div>
     <%= form.label :meal_type, "Type" %>
     <%= form.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Drink"] %>
   </div>
