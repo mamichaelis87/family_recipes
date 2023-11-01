@@ -7,3 +7,9 @@
     <%= button_to "Dessert", recipes_path, method: :get, params: {meal_type: "Dessert"} %>
     <%= button_to "Drink", recipes_path, method: :get, params: {meal_type: "Drink"} %>
 </div>
+<div class="buttons-container">
+    <%= button_to "Poultry", recipes_path, method: :get, params: {protein: "Poultry"}%>
+    <%= button_to "Red Meat", recipes_path, method: :get, params: {protein: "Red Meat"}%>
+    <%= button_to "Seafood", recipes_path, method: :get, params: {protein: "Seafood"}%>
+    <%= button_to "Vegetarian", recipes_path, method: :get, params: {protein: "Vegetarian"}%>
+</div>

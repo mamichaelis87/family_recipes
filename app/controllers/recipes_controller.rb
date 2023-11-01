@@ -5,7 +5,9 @@ class RecipesController < ApplicationController
       @recipes = Recipe.where(name: params[:name]).order(:name)
     elsif params[:meal_type]
       @recipes = Recipe.where(meal_type: params[:meal_type]).order(:name)
-    else
+    elsif params[:protein]
+      @recipes = Recipe.where(protein: params[:protein]).order(:name)
+    else 
       @recipes = Recipe.all.order(:name)
     end
     if params[:chosen_recipe]
