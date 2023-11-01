@@ -1,4 +1,4 @@
-<h1><%= recipe.name %></h1>
+<h1><%= link_to recipe.name, recipe_path(recipe) %></h1>
 <% unless recipe.author == "" %>
   <p>A recipe from <%= recipe.author %></p>
 <% end %>
