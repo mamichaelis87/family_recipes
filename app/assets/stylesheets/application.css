@@ -78,9 +78,22 @@ justify-content: space-between;
  }
 
  .recipe-display {
-  flex-grow: 1;
   background-color: #DD5353;
   padding: 1rem;
   border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipe-name {
+  width: 100%;
+}
+
+.recipe-info {
+  width: 25%;
+}
+
+.recipe-steps {
+  width: 75%;
 }
 

@@ -1,5 +1,5 @@
 <div class="recipe-display">
-  <h1><%= link_to recipe.name, recipe_path(recipe) %></h1>
+  <h1 class="recipe-name"><%= link_to recipe.name, recipe_path(recipe) %></h1>
   <div class="recipe-info">
     <% unless recipe.author == "" %>
       <p>A recipe from <%= recipe.author %></p>
