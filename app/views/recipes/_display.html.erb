@@ -1,16 +1,26 @@
 <div class="recipe-display">
-  <h1 class="recipe-name"><%= link_to recipe.name, recipe_path(recipe) %></h1>
+  <div class="recipe-info">
+    <span class="name"><h1 class="recipe-name"><%= link_to recipe.name, recipe_path(recipe) %></h1></span>
+    <span class="author">
+    <% unless recipe.author == "" %>
+      <p>A recipe from <%= recipe.author %></p>
+    <% end %></span>
+    <span class="culture-type"><p><%= recipe.culture %> <%= recipe.meal_type %></p></span>
+    <span class="servings"><p><%= recipe.servings %> servings</p></span>
+  </div>
   <div class="recipe">
-    <div class="recipe-info">
-      <% unless recipe.author == "" %>
-        <p>A recipe from <%= recipe.author %></p>
-      <% end %>
-      <p><%= recipe.culture %> <%= recipe.meal_type %></p>
-      <p><%= recipe.servings %> servings</p>
+    <div class="ingredients">
       <h3>Ingredients</h3>
       <ul class="ingredient-list">
         <% recipe.ingredients.each do |i| %>
-          <li><%= i.name %>, <%= i.measurement_amount %> <%= i.measurement_type %></li>
+          <li class="ingredient">
+            <div class="ingredient-name">
+              <%= i.name %>
+            </div>
+            <div class="ingredient-measurement">
+              <%= i.measurement_amount %> <%= i.measurement_type %>
+            </div>
+          </li>
         <% end %>
       </ul>
       <div>

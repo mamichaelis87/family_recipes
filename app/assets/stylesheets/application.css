@@ -84,15 +84,29 @@ justify-content: space-between;
   max-height: 500px;
 }
 
+.recipe-info {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.recipe-info h1 {
+  padding-top: 0;
+  margin: 0;
+}
+
+.recipe-info span {
+  padding: .5rem;
+}
+
 .recipe {
   display: flex;
 }
 
-.recipe-info {
+.ingredients {
   padding: .5rem;
   max-width: 20%;
   margin-right: 1rem;
-  overflow-y: auto;
 }
 
 .ingredient-list {
@@ -101,7 +115,6 @@ justify-content: space-between;
 
 .recipe-steps {
   max-width: 75%;
-  overflow-y: auto;
 }
 
 .step-list-box {
