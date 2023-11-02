@@ -7,9 +7,10 @@
     <% end %></span>
     <span class="culture-type"><p><%= recipe.culture %> <%= recipe.meal_type %></p></span>
     <span class="servings"><p><%= recipe.servings %> servings</p></span>
+    <span class="edit-link"><%= link_to "Edit Recipe", edit_recipe_path(recipe) %></span>
   </div>
   <div class="recipe">
-    <div class="ingredients">
+    <div class="recipe-ingredients">
       <h3>Ingredients</h3>
       <ul class="ingredient-list">
         <% recipe.ingredients.each do |i| %>
@@ -23,9 +24,6 @@
           </li>
         <% end %>
       </ul>
-      <div>
-        <%= link_to "Edit Recipe", edit_recipe_path(recipe) %>
-      </div>
     </div>
     <div class="recipe-steps">
       <h3>Steps</h3>
