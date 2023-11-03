@@ -1,8 +1,19 @@
 <div class="buttons-container">
   <%= render "recipes/meal_types", :path => "/all_recipes/" %>
 </div>
-<ul class="recipe-list">
+<h3>Recipes</h3>
+<ul class="searched-recipes">
   <% @recipes.each do |recipe| %>
     <li><%= link_to recipe.name, recipes_path(:chosen_recipe => recipe) %></li>
   <% end %>
 </ul>
+<% if @ingredients %>
+  <h3>Ingredients</h3>
+  <ul class="searched-ingredients">
+    <% @ingredients.each do |ing| %>
+      <li>
+        <%= link_to "#{ing.recipe.name} (#{ing.name})", recipes_path(:chosen_recipe => ing.recipe) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
