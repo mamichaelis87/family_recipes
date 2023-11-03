@@ -54,8 +54,8 @@ class RecipesController < ApplicationController
 
   def all
     if params[:query]
-      @recipes = Recipe.where("name ~* ?", "#{params[:query]}")
-      @ingredients = Ingredient.where("name ~* ?", "#{params[:query]}")
+      @recipes = Recipe.where("name ~* ?", "#{params[:query]}").order(:name)
+      @ingredients = Ingredient.where("name ~* ?", "#{params[:query]}").order(:name)
     elsif params[:meal_type]
       @recipes = Recipe.where(meal_type: params[:meal_type]).order(:name)
       @ingredients = nil
@@ -63,7 +63,7 @@ class RecipesController < ApplicationController
       @recipes = Recipe.where(protein: params[:protein]).order(:name)
       @ingredients = nil
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.all.order(:name)
       @ingredients = nil
     end
     
