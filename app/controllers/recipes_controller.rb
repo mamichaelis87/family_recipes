@@ -58,8 +58,6 @@ class RecipesController < ApplicationController
       @recipes = Recipe.where(meal_type: params[:meal_type]).order(:name)
     elsif params[:protein]
       @recipes = Recipe.where(protein: params[:protein]).order(:name)
-    else 
-      @recipes = Recipe.all.order(:name)
     end
   end
 
