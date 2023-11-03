@@ -56,7 +56,7 @@ class RecipesController < ApplicationController
   end
 
   def all
-    @recipes = Recipe.all
+      @recipes = Recipe.where("name ~* ?", "#{params[:query]}")
   end
 
   private
