@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :recipes 
   resources :ingredients
   resources :steps
+  get '/all_recipes/' => 'recipes#all'
 end

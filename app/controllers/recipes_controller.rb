@@ -52,6 +52,13 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
+  def all
+    @recipes = Recipe.all
+  end
+
   private
 
   def recipe_params

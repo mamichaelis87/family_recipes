@@ -1,7 +1,7 @@
-<%= form_with url: "/recipes", method: :get do |form| %>
+<%= form_with url: "/all_recipes/", method: :get do |form| %>
   <div>
     <span class="container">
-      <%= form.text_field :name %>
+      <%= form.text_field :query %>
     </span>
     <%= form.submit "Search Recipes" %>
   </div> 
