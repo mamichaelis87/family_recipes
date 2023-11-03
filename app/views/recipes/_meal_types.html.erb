@@ -1,16 +1,16 @@
 <div class="buttons-container">
-    <%= button_to "All", recipes_path, method: :get %>
-    <%= button_to "Breakfast", recipes_path, method: :get, params: {meal_type: "Breakfast"} %>
-    <%= button_to "Lunch", recipes_path, method: :get, params: {meal_type: "Lunch"} %>
-    <%= button_to "Dinner", recipes_path, method: :get, params: {meal_type: "Dinner"} %>
-    <%= button_to "Snack", recipes_path, method: :get, params: {meal_type: "Snack"} %>
-    <%= button_to "Dessert", recipes_path, method: :get, params: {meal_type: "Dessert"} %>
-    <%= button_to "Drink", recipes_path, method: :get, params: {meal_type: "Drink"} %>
-    <%= button_to "Cocktail", recipes_path, method: :get, params: {meal_type: "Cocktail"} %>
+    <%= button_to "All", path, method: :get %>
+    <%= button_to "Breakfast", path, method: :get, params: {meal_type: "Breakfast"} %>
+    <%= button_to "Lunch", path, method: :get, params: {meal_type: "Lunch"} %>
+    <%= button_to "Dinner", path, method: :get, params: {meal_type: "Dinner"} %>
+    <%= button_to "Snack", path, method: :get, params: {meal_type: "Snack"} %>
+    <%= button_to "Dessert", path, method: :get, params: {meal_type: "Dessert"} %>
+    <%= button_to "Drink", path, method: :get, params: {meal_type: "Drink"} %>
+    <%= button_to "Cocktail", path, method: :get, params: {meal_type: "Cocktail"} %>
 </div>
 <div class="buttons-container">
-    <%= button_to "Poultry", recipes_path, method: :get, params: {protein: "Poultry"}%>
-    <%= button_to "Red Meat", recipes_path, method: :get, params: {protein: "Red Meat"}%>
-    <%= button_to "Seafood", recipes_path, method: :get, params: {protein: "Seafood"}%>
-    <%= button_to "Vegetarian", recipes_path, method: :get, params: {protein: "Vegetarian"}%>
+    <%= button_to "Poultry", path, method: :get, params: {protein: "Poultry"}%>
+    <%= button_to "Red Meat", path, method: :get, params: {protein: "Red Meat"}%>
+    <%= button_to "Seafood", path, method: :get, params: {protein: "Seafood"}%>
+    <%= button_to "Vegetarian", path, method: :get, params: {protein: "Vegetarian"}%>
 </div>
