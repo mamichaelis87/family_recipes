@@ -43,10 +43,10 @@ justify-content: space-between;
   display: flex;
   padding: .5rem;
   padding-top: 1rem;
+  max-width: max-content;
 }
 
 .recipe-list {
-  max-width: max-content;
   list-style-type: none;
   padding-left: .5rem;
 }
@@ -130,16 +130,15 @@ justify-content: space-between;
 }
 
 .recipe-steps {
-  max-width: 75%;
   overflow-y: auto;
   overflow-x: hidden;
+  max-width: 640px;
 }
 
 .step-list-box {
   padding-left: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   /* gap: 1rem; */
   /* grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); */
 }
@@ -147,7 +146,7 @@ justify-content: space-between;
 .step-box {
   /* padding: .25rem; */
   margin: 1rem 1rem 1rem 1rem;
-  max-width: 200px;
+  max-width: 40%;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
