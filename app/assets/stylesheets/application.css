@@ -155,10 +155,12 @@ justify-content: space-between;
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 70%;
+  border-left: 2px solid rgb(36, 36, 100);
+  padding-left: 1rem;
 }
 
 .step-list-box {
-  padding-left: 1rem;
+  padding-left: 0;
   display: flex;
   flex-wrap: wrap;
   /* gap: 1rem; */
