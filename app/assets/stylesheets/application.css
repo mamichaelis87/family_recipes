@@ -143,8 +143,12 @@ justify-content: space-between;
   justify-content: space-between;
 }
 
-.ingredient div {
+.ingredient-name, .ingredient-measurement {
   width: 50%;
+}
+
+.ingredient-measurement {
+  text-align: end;
 }
 
 .recipe-steps {
@@ -164,7 +168,7 @@ justify-content: space-between;
 .step-box {
   /* padding: .25rem; */
   margin: 1rem 1rem 1rem 1rem;
-  max-width: 40%;
+  max-width: 200px;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
