@@ -57,16 +57,17 @@
     <%= form.fields_for :steps do |steps_form|%>
     <template data-ingredients-and-steps-target="stepTemplate">
       <li data-ingredients-and-steps-target="step">
-        <%= steps_form.text_area :instructions %>
+        <%= steps_form.text_area :instructions, size: "40x5" %>
       </li>
     </template>
     <li data-ingredients-and-steps-target="step">
-      <%= steps_form.text_area :instructions %>
+      <%= steps_form.text_area :instructions, size: "40x5" %>
     </li>
     <% end %>
   </ol>
-<%= form.submit "Submit Recipe" %>
+<%= form.submit "Save Recipe" %>
 <% end %>
+
 <div>
   <button data-action="ingredients-and-steps#addIngredient">Add Ingredient</button>
   <button data-action="ingredients-and-steps#removeIngredient">Remove Ingredient</button>
