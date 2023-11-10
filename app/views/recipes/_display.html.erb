@@ -20,7 +20,12 @@
             </div>
             <div class="ingredient-measurement">
               <% if i.measurement_amount %>
-                <%= if i.measurement_amount % 1 == 0 then i.measurement_amount.to_i else i.measurement_amount.to_r end %>
+                <% if i.measurement_amount % 1 == 0 %>
+                  <%= i.measurement_amount.to_i %>
+                <% else %>
+                  <% amount = i.measurement_amount.divmod 1 %>
+                  <%= amount[0].to_i %> <%= amount[1].to_r %>
+                <% end %>
               <% end %> 
               <%= i.measurement_type %>
             </div>
