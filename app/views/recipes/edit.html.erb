@@ -1,2 +1,8 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
 <h2>Edit Recipe For <%= @recipe.name %></h2>
 <%= render "recipes/recipe_form", :recipe => @recipe %>

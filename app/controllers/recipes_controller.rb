@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
     @recipe.ingredients.build
     @recipe.steps.build
   end
@@ -50,9 +50,13 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.ingredients.destroy_all
     @recipe.steps.destroy_all
+    unless @recipe.user_id
+      @recipe.user_id = current_user.id
+    end
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
+      flash[:error] = @recipe.errors.full_messages.to_sentence
       render :edit, status: :unprocessable_entity
     end
   end
@@ -80,7 +84,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :meal_type, :culture, :protein, :servings, :author, ingredients_attributes: [:name, :measurement_amount, :measurement_type], steps_attributes: [:instructions])
+    params.require(:recipe).permit(:user_id, :name, :meal_type, :culture, :protein, :servings, :author, ingredients_attributes: [:name, :measurement_amount, :measurement_type], steps_attributes: [:instructions])
   end
 
 end
