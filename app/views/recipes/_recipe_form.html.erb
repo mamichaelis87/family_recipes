@@ -33,7 +33,7 @@
             <%= ingredients_form.label :name, "Name" %>
             <%= ingredients_form.text_field :name %>
             <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
-            <%= ingredients_form.number_field :measurement_amount %>
+            <%= ingredients_form.number_field :measurement_amount, step: :any %>
             <%= ingredients_form.label :measurement_type, "Unit" %>
             <%= ingredients_form.text_field :measurement_type %>
           </div>
@@ -44,7 +44,7 @@
           <%= ingredients_form.label :name, "Name" %>
           <%= ingredients_form.text_field :name %>
           <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
-          <%= ingredients_form.number_field :measurement_amount %>
+          <%= ingredients_form.number_field :measurement_amount, step: :any %>
           <%= ingredients_form.label :measurement_type, "Unit" %>
           <%= ingredients_form.text_field :measurement_type %>
         </div>
