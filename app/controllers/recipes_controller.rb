@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+
   def index
     if params[:meal_type]
       @recipes = Recipe.where(meal_type: params[:meal_type]).order(:name)
