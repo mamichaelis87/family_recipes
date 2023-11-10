@@ -6,7 +6,7 @@
       <p>A recipe from <%= recipe.author %></p>
     <% end %></span>
     <span class="culture-type"><p><%= recipe.culture %> <%= recipe.meal_type %></p></span>
-    <span class="servings"><p><%= recipe.servings %> servings</p></span>
+    <span class="servings"><p><%= recipe.servings.to_i %> servings</p></span>
     <span class="edit-link"><%= link_to "Edit Recipe", edit_recipe_path(recipe) %></span>
   </div>
   <div class="recipe">
@@ -19,7 +19,10 @@
               <%= i.name %>
             </div>
             <div class="ingredient-measurement">
-              <%= i.measurement_amount %> <%= i.measurement_type %>
+              <% if i.measurement_amount %>
+                <%= if i.measurement_amount % 1 == 0 then i.measurement_amount.to_i else i.measurement_amount.to_r end %>
+              <% end %> 
+              <%= i.measurement_type %>
             </div>
           </li>
         <% end %>

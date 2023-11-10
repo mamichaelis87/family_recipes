@@ -38,6 +38,12 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    if @recipe.ingredients.empty?
+      @recipe.ingredients.build
+    end
+    if @recipe.steps.empty?
+      @recipe.steps.build
+    end
   end
 
   def update
