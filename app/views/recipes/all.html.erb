@@ -4,7 +4,7 @@
 <h3>Recipes</h3>
 <ul class="searched-recipes">
   <% @recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipes_path(:chosen_recipe => recipe) %></li>
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
   <% end %>
 </ul>
 <% if @ingredients %>
@@ -12,7 +12,7 @@
   <ul class="searched-ingredients">
     <% @ingredients.each do |ing| %>
       <li>
-        <%= link_to "#{ing.recipe.name} (#{ing.name})", recipes_path(:chosen_recipe => ing.recipe) %>
+        <%= link_to "#{ing.recipe.name} (#{ing.name})", recipe_path(ing.recipe) %>
       </li>
     <% end %>
   </ul>
