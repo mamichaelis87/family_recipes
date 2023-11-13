@@ -14,6 +14,11 @@ export default class extends Controller {
     clone.querySelector("div>:nth-child(2)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][name]`)
     clone.querySelector("div>:nth-child(4)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][measurement_amount]`)
     clone.querySelector("div>:nth-child(6)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][measurement_type]`)
+    
+    clone.querySelector("div>:nth-child(2)").setAttribute("value", "")
+    clone.querySelector("div>:nth-child(4)").setAttribute("value", "")
+    clone.querySelector("div>:nth-child(6)").setAttribute("value", "")
+    
     this.ingredientListTarget.appendChild(clone)
     this.ingredientsValue++
   }
@@ -37,6 +42,7 @@ export default class extends Controller {
     console.log("add step")
     const clone = this.stepTemplateTarget.content.cloneNode(true)
     clone.querySelector("li>:nth-child(1)").setAttribute("name",`recipe[steps_attributes][${this.stepsValue}][instructions]`)
+    clone.querySelector("li>:nth-child(1)").setAttribute("value", "")
     this.stepListTarget.appendChild(clone)
     this.stepsValue++
   }
