@@ -51,7 +51,11 @@
       </div>
     <% end %>
   </div>
-  
+  <div>
+    <button type="button" data-action="ingredients-and-steps#addIngredient">Add Ingredient</button>
+    <button type="button" data-action="ingredients-and-steps#removeIngredient">Remove Ingredient</button>
+  </div>
+
   <h3>Steps</h3>
   <ol data-ingredients-and-steps-target="stepList">
     <%= form.fields_for :steps do |steps_form|%>
@@ -65,16 +69,20 @@
     </li>
     <% end %>
   </ol>
+  <div>
+    <button type="button" data-action="ingredients-and-steps#addStep">Add Step</button>
+    <button type="button" data-action="ingredients-and-steps#removeStep">Remove Step</button>
+  </div>
 <%= form.submit "Save Recipe" %>
 <% end %>
 
-<div>
+<%# <div>
   <button data-action="ingredients-and-steps#addIngredient">Add Ingredient</button>
   <button data-action="ingredients-and-steps#removeIngredient">Remove Ingredient</button>
 </div>
 <div>
   <button data-action="ingredients-and-steps#addStep">Add Step</button>
   <button data-action="ingredients-and-steps#removeStep">Remove Step</button>
-</div>
+</div> %>
 <div data-ingredients-and-steps-target="warning"></div>
 </div>
