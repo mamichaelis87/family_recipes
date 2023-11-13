@@ -22,6 +22,9 @@
               <% if i.measurement_amount %>
                 <% if i.measurement_amount % 1 == 0 %>
                   <%= i.measurement_amount.to_i %>
+                <% elsif i.measurement_amount < 1 %>
+                  <% amount = i.measurement_amount.divmod 1 %>
+                  <%= amount[1].to_r %>
                 <% else %>
                   <% amount = i.measurement_amount.divmod 1 %>
                   <%= amount[0].to_i %> <%= amount[1].to_r %>
