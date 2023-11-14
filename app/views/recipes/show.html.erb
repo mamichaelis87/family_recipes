@@ -1,4 +1,5 @@
 <div class="container">
   <%= render "recipes/display", :recipe => @recipe %>
-  <%= render "recipes/comments", :new_comment => @new_comment, :recipe_comments => @recipe_comments %>
+  <h4>Comments:</h4>
+  <%= render "recipes/comments", :recipe => @recipe, :new_comment => @new_comment %>
 </div>
