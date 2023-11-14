@@ -2,7 +2,7 @@
   <ul>
     <% recipe.comments.each do |c| %>
       <li class="comment">
-        <h5 class="comment-user"><%= c.user %></h5>
+        <p class="comment-user"><strong><%= c.user.email %></strong></p>
         <p class="comment-body"><%= c.body %></p>
       </li>
     <% end %>
@@ -12,6 +12,7 @@
           <%= form.text_area :body, size: "30x2", placeholder: "Have thoughts?" %>
         </p>
         <%= form.hidden_field :recipe_id, value: recipe.id %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
         <%= form.submit "Submit Comment" %>
       <% end %>
     </li>
