@@ -19,7 +19,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @comment = current_user.comments.build
+    @new_comment = current_user.comments.build
+    @recipe_comments = @recipe.comments
   end
 
   def new
