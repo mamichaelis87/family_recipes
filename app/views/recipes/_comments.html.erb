@@ -1,0 +1,19 @@
+<%# comments partial %>
+<div class="comments container">
+  <ul>
+  <% comments.each do |c| %>
+    <li class="comment">
+      <h5 class="comment-user"><%= c.user %></h5>
+      <p class="comment-body"><%= c.body %></p>
+    </li>
+  <% end %>
+  <li class="comment">
+    <% form_with model: comment do |form| %>
+      <p class="comment-body">
+        <%= form.text_area :body, size: "30x2", placeholder: "Have thoughts?" %>
+      </p>
+      <%= form.submit "Submit Comment" %>
+    <% end %>
+  </li>
+  </ul>
+</div>
