@@ -19,6 +19,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @comment = current_user.comments.build
   end
 
   def new
@@ -78,7 +79,6 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all.order(:name)
       @ingredients = nil
     end
-    
   end
 
   private
