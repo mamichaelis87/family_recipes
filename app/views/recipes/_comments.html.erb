@@ -14,6 +14,7 @@
       <p class="comment-body">
         <%= form.text_area :body, size: "30x2", placeholder: "Have thoughts?" %>
       </p>
+      <%= form.hidden_field :user_id, value: current_user.id %>
       <%= form.submit "Submit Comment" %>
     <% end %>
   </li>
