@@ -60,7 +60,7 @@ display: flex;
 justify-content: space-between;
 }
 
-.search-input {
+.submit-button {
   outline: none;
   border: none;
   border-radius: 5px;
@@ -150,6 +150,7 @@ justify-content: space-between;
   max-height: 500px;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 2px rgba(0,0,0,0.4);
 }
 
 .recipe-info {
