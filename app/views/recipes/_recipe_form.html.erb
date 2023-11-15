@@ -1,52 +1,52 @@
 <div data-controller="ingredients-and-steps" data-ingredients-and-steps-ingredients-value="1" data-ingredients-and-steps-steps-value="1">
 <%= form_with model: recipe do |form| %>
-  <div>
+  <div class="input-field">
     <%= form.label :name, "Name" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "text-input" %>
   </div>
-  <div>
+  <div class="input-field">
     <%= form.label :author, "Author" %>
-    <%= form.text_field :author %>
+    <%= form.text_field :author, class: "text-input" %>
   </div>
-  <div>
+  <div class="input-field">
     <%= form.label :meal_type, "Type" %>
     <%= form.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Drink", "Cocktail"] %>
   </div>
-  <div>
+  <div class="input-field">
     <%= form.label :protein, "Protein" %>
     <%= form.select :protein, ["Poultry", "Red Meat", "Seafood", "Vegetarian"] %>
   </div>
-  <div>
+  <div class="input-field">
     <%= form.label :culture, "Culture" %>
-    <%= form.text_field :culture %>
+    <%= form.text_field :culture, class: "text-input" %>
   </div>
-  <div>
+  <div class="input-field">
     <%= form.label :servings, "Number of Servings" %>
-    <%= form.number_field :servings %>
+    <%= form.number_field :servings, class: "text-input" %>
   </div>
   <h3>Ingredients</h3>
   <div data-ingredients-and-steps-target="ingredientList">
     <%= form.fields_for :ingredients do |ingredients_form|%>
       <template data-ingredients-and-steps-target="ingredientTemplate">
-        <div data-ingredients-and-steps-target="ingredient">
+        <div class="input-field" data-ingredients-and-steps-target="ingredient">
           <div>
             <%= ingredients_form.label :name, "Name" %>
-            <%= ingredients_form.text_field :name %>
+            <%= ingredients_form.text_field :name, class: "text-input" %>
             <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
-            <%= ingredients_form.number_field :measurement_amount, step: :any %>
+            <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input" %>
             <%= ingredients_form.label :measurement_type, "Unit" %>
-            <%= ingredients_form.text_field :measurement_type %>
+            <%= ingredients_form.text_field :measurement_type, class: "text-input" %>
           </div>
         </div>
       </template>
-      <div data-ingredients-and-steps-target="ingredient">
+      <div class="input-field" data-ingredients-and-steps-target="ingredient">
         <div>
           <%= ingredients_form.label :name, "Name" %>
-          <%= ingredients_form.text_field :name %>
+          <%= ingredients_form.text_field :name, class: "text-input" %>
           <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
-          <%= ingredients_form.number_field :measurement_amount, step: :any %>
+          <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input" %>
           <%= ingredients_form.label :measurement_type, "Unit" %>
-          <%= ingredients_form.text_field :measurement_type %>
+          <%= ingredients_form.text_field :measurement_type, class: "text-input" %>
         </div>
       </div>
     <% end %>
@@ -60,12 +60,12 @@
   <ol data-ingredients-and-steps-target="stepList">
     <%= form.fields_for :steps do |steps_form|%>
     <template data-ingredients-and-steps-target="stepTemplate">
-      <li data-ingredients-and-steps-target="step">
-        <%= steps_form.text_area :instructions, size: "40x5" %>
+      <li class="input-field" data-ingredients-and-steps-target="step">
+        <%= steps_form.text_area :instructions, size: "40x5", class: "text-input" %>
       </li>
     </template>
-    <li data-ingredients-and-steps-target="step">
-      <%= steps_form.text_area :instructions, size: "40x5" %>
+    <li class="input-field" data-ingredients-and-steps-target="step">
+      <%= steps_form.text_area :instructions, size: "40x5", class: "text-input" %>
     </li>
     <% end %>
   </ol>
@@ -73,7 +73,7 @@
     <button type="button" data-action="ingredients-and-steps#addStep">Add Step</button>
     <button type="button" data-action="ingredients-and-steps#removeStep">Remove Step</button>
   </div>
-<%= form.submit "Save Recipe" %>
+<%= form.submit "Save Recipe", class: "button" %>
 <% end %>
 
 <%# <div>
