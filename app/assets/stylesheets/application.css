@@ -60,7 +60,7 @@ display: flex;
 justify-content: space-between;
 }
 
-.submit-button {
+.search-input {
   outline: none;
   border: none;
   border-radius: 5px;
