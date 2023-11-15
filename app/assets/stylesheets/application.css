@@ -176,7 +176,7 @@ justify-content: space-between;
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 70%;
-  border-left: 2px solid rgb(36, 36, 100);
+  border-left: 2px solid var(--secondary-background);
   padding-left: 1rem;
 }
 
