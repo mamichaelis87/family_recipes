@@ -11,7 +11,7 @@
   </div>
   <div class="recipe">
     <div class="recipe-ingredients">
-      <h3>Ingredients</h3>
+      <h3 class="stitch-font">INGREDIENTS</h3>
       <ul class="ingredient-list">
         <% recipe.ingredients.each do |i| %>
           <li class="ingredient">
@@ -37,7 +37,7 @@
       </ul>
     </div>
     <div class="recipe-steps">
-      <h3>Steps</h3>
+      <h3 class="stitch-font">STEPS</h3>
       <ol class="step-list-box">
         <% recipe.steps.each do |s| %>
           <li class="step-box"><%= s.instructions %></li>
