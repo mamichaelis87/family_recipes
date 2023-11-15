@@ -45,6 +45,12 @@ button {
   border: none;
   border-radius: 10px;
   padding: .25rem .75rem;
+  transition-duration: .1s;
+  transition-timing-function: ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05)
 }
 
 .header {
@@ -61,6 +67,11 @@ justify-content: space-between;
 
 .container {
   padding: .5rem;
+}
+
+.welcome {
+  font-size: xx-large;
+  text-wrap: wrap;
 }
 
 .recipes {
