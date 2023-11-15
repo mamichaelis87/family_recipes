@@ -9,11 +9,11 @@
         <li><%= link_to recipe.name, recipes_path(:chosen_recipe => recipe) %></li>
       <% end %>
     </ul>
+    <div class="container">
+      <%= link_to "Add a recipe", new_recipe_path %>
+    </div>
   </div>
   <div class="recipe-card">
     <%= render "recipes/display", :recipe => @chosen_recipe %>
   </div>
-</div>
-<div class="container">
-  <%= link_to "Add a recipe", new_recipe_path %>
 </div>
