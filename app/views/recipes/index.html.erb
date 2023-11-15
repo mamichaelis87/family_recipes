@@ -6,7 +6,7 @@
     </div>
     <ul class="recipe-list">
       <% @recipes.each do |recipe| %>
-        <li><%= link_to recipe.name, recipes_path(:chosen_recipe => recipe) %></li>
+        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
       <% end %>
     </ul>
     <div class="container">
