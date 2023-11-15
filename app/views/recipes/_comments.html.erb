@@ -10,7 +10,7 @@
     <li class="comment">
       <%= form_with model: new_comment do |form| %>
         <p class="comment-body">
-          <%= form.text_area :body, size: "30x2", placeholder: "Have thoughts?" %>
+          <%= form.text_area :body, size: "30x2", placeholder: "Have thoughts?", class: "text-input" %>
         </p>
         <%= form.hidden_field :recipe_id, value: recipe.id %>
         <%= form.hidden_field :user_id, value: current_user.id %>
