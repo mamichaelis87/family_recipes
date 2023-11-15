@@ -1,19 +1,23 @@
-<div class="all-buttons-container">
-  <%= render "recipes/meal_types", :path => "/all_recipes/" %>
-</div>
-<h3 class="stitch-font">RECIPES</h3>
-<ul class="searched-recipes">
-  <% @recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-  <% end %>
-</ul>
-<% if @ingredients %>
-  <h3 class="stitch-font">INGREDIENTS</h3>
-  <ul class="searched-ingredients">
-    <% @ingredients.each do |ing| %>
-      <li>
-        <%= link_to "#{ing.recipe.name} (#{ing.name})", recipe_path(ing.recipe) %>
-      </li>
+<div class="container">
+  <div class="bg-primary search-output">
+    <div class="all-buttons-container">
+      <%= render "recipes/meal_types", :path => "/all_recipes/" %>
+    </div>
+    <h3 class="stitch-font">RECIPES</h3>
+    <ul class="searched-recipes">
+      <% @recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+      <% end %>
+    </ul>
+    <% if @ingredients %>
+      <h3 class="stitch-font">INGREDIENTS</h3>
+      <ul class="searched-ingredients">
+        <% @ingredients.each do |ing| %>
+          <li>
+            <%= link_to "#{ing.recipe.name} (#{ing.name})", recipe_path(ing.recipe) %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
+  </div>
+</div>
