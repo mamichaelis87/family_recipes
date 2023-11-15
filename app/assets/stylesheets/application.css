@@ -16,8 +16,8 @@
 
 :root {
   --light-red: #DD5353AA;
-  --primary-background: #f5f5f5;
-  --secondary-background: #B73E3EB9;
+  --primary-background: #f5f5dc;
+  --secondary-background: #325648;
   --cool-tan: #DBC8AC;
 }
 
@@ -34,7 +34,14 @@ a, a:focus, a:active {
 
 a:hover{
   color: var(--secondary-background);
-} 
+}
+
+button {
+  background-color: goldenrod;
+  border: none;
+  border-radius: 10px;
+  padding: .25rem .75rem;
+}
 
 .header {
 background-color: var(--primary-background);
@@ -57,6 +64,10 @@ justify-content: space-between;
 .recipe-choices {
   min-width: 200px;
   max-width: 240px;
+  background-color: var(--primary-background);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px rgba(0,0,0,0.4);
 }
 
 .recipe-list {
@@ -185,4 +196,10 @@ justify-content: space-between;
   word-wrap: break-word;
 }
 
+.comments {
+  background-color: var(--primary-background);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px rgba(0,0,0,0.4);
+}
 
