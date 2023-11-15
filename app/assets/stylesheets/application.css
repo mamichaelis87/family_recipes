@@ -54,7 +54,6 @@ button:hover, .button:hover {
 }
 
 .header {
-background-color: var(--primary-background);
 padding: .5rem;
 box-shadow: 0 2px 2px rgba(0,0,0,0.4);
 display: flex;
@@ -67,6 +66,10 @@ justify-content: space-between;
 
 .container {
   padding: .5rem;
+}
+
+.bg-primary {
+  background-color: var(--primary-background);
 }
 
 .welcome {
@@ -83,7 +86,6 @@ justify-content: space-between;
 .recipe-choices {
   min-width: 200px;
   max-width: 240px;
-  background-color: var(--primary-background);
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 2px 2px rgba(0,0,0,0.4);
@@ -116,7 +118,6 @@ justify-content: space-between;
 .recipe-card {
   margin-left: 2rem;
   flex-grow: 1;
-  background-color: var(--primary-background);
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 2px 2px rgba(0,0,0,0.4);
@@ -132,7 +133,6 @@ justify-content: space-between;
  }
 
  .recipe-display {
-  background-color: var(--primary-background);
   padding: 1rem;
   border-radius: 1rem;
   max-height: 500px;
@@ -216,7 +216,6 @@ justify-content: space-between;
 }
 
 .comments {
-  background-color: var(--primary-background);
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 2px 2px rgba(0,0,0,0.4);
