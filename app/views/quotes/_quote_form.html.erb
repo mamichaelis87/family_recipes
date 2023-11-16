@@ -1,0 +1,6 @@
+<div class="container bg-primary">
+  <%= form_with model: quote do |form| %>
+    <%= form.text_area :body, placeholder: "What's your wititude?" %>
+    <%= form.submit "Add Wititude", class: "button" %>
+  <% end %>
+</div>
