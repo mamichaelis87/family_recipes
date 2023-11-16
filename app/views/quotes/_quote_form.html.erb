@@ -1,6 +1,11 @@
-<div class="container bg-primary">
+<div class="container bg-primary quote-form">
   <%= form_with model: quote do |form| %>
-    <%= form.text_area :body, placeholder: "What's your wititude?" %>
-    <%= form.submit "Add Wititude", class: "button" %>
+    <div>
+      <%= form.text_area :body, size: "30x5", placeholder: "What's your wititude?", class: "text-input" %>
+    </div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <div>
+      <%= form.submit "Save Wititude", class: "button" %>
+    </div>
   <% end %>
 </div>
