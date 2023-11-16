@@ -20,7 +20,6 @@
     <div class="quote-display">
       <div>
         <p class="stitch-font quote">"<%= @quote.body.upcase %>"</p>
-        <p>-<%= @quote.user.email %></p>
       </div>
       <div class="quote-buttons">
         <%= link_to "Edit Wititude", edit_quote_path(@quote), class: "button" %>
