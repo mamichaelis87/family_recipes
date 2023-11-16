@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :steps
   resources :comments, only: [:create, :destroy]
+  resources :quotes
   get '/all_recipes/' => 'recipes#all', as: "all_recipes"
 end
