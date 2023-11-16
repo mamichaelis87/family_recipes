@@ -17,5 +17,15 @@
   </div>
   <div class="recipe-card bg-primary">
     <p class="stitch-font welcome">HEY MOM! WELCOME TO YOUR WEBSITE, HOPE YOU ENJOY IT :)</p>
+    <div class="quote-display">
+      <div class="quote">
+        <p class="stitch-font"><%= @quote.body.upcase %></p>
+        <p>-<%= @quote.user.email %></p>
+      </div>
+      <div class="quote-buttons">
+        <%= link_to "Edit Wititude", edit_quote_path(@quote), class: "button" %>
+        <%= link_to "Add New Wititude", new_quote_path(@quote), class: "button" %>
+      </div>
+    </div>
   </div>
 </div>
