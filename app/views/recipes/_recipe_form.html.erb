@@ -1,4 +1,4 @@
-<div data-controller="ingredients-and-steps" data-ingredients-and-steps-ingredients-value="1" data-ingredients-and-steps-steps-value="1">
+<div data-controller="ingredients-and-steps" data-ingredients-and-steps-ingredients-value="<%= recipe.ingredients.length %>" data-ingredients-and-steps-steps-value="<%= recipe.steps.length %>">
 <%= form_with model: recipe do |form| %>
   <div class="input-field">
     <%= form.label :name, "Name" %>
