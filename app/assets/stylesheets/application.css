@@ -90,6 +90,10 @@ justify-content: space-between;
   text-wrap: wrap;
 }
 
+.quote {
+  font-size: 36px;
+}
+
 .recipes {
   display: flex;
   padding: .5rem;
