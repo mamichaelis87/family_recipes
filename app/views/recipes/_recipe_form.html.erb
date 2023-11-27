@@ -35,7 +35,7 @@
             <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
             <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input" %>
             <%= ingredients_form.label :measurement_type, "Unit" %>
-            <%= ingredients_form.text_field :measurement_type, class: "text-input" %>
+            <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "quantity"], class: "text-input" %>
           </div>
         </div>
       </template>
@@ -46,7 +46,7 @@
           <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
           <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input" %>
           <%= ingredients_form.label :measurement_type, "Unit" %>
-          <%= ingredients_form.text_field :measurement_type, class: "text-input" %>
+          <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "quantity"], class: "text-input" %>
         </div>
       </div>
     <% end %>
