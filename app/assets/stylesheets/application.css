@@ -29,6 +29,7 @@ body {
   background-color: var(--secondary-background);
   margin: 0;
   color: black;
+  font-family: sans-serif;
 }
 
 a, a:focus, a:active {
@@ -92,6 +93,8 @@ justify-content: space-between;
 
 .quote {
   font-size: 36px;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 .recipes {
