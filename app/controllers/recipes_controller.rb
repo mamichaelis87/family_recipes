@@ -19,13 +19,14 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = current_user.recipes.build
+    @recipe = Recipe.new
     @recipe.ingredients.build
     @recipe.steps.build
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
