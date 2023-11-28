@@ -11,6 +11,9 @@ class RecipesController < ApplicationController
     end
     ids = Quote.pluck(:id)
     @quote = Quote.find(ids.sample)
+    unless @quote
+      @quote = "Add a witticism!"
+    end
   end
 
   def show
