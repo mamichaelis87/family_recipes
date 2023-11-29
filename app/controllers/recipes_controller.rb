@@ -10,9 +10,8 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all.order(:name)
     end
     ids = Quote.pluck(:id)
-    @quote = Quote.find(ids.sample)
-    unless @quote
-      @quote = "Add a witticism!"
+    unless ids.empty?
+      @quote = Quote.find(ids.sample)
     end
   end
 
