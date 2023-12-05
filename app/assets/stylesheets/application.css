@@ -30,6 +30,7 @@ body {
   margin: 0;
   color: black;
   font-family: sans-serif;
+  line-height: 1.5;
 }
 
 a, a:focus, a:active {
@@ -141,15 +142,16 @@ justify-content: space-between;
   max-width: fit-content;
  }
 
-.recipe-card {
+.quote-card {
   margin-left: 2rem;
   flex-grow: 1;
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 2px 2px rgba(0,0,0,0.4);
+  height: fit-content;
 }
 
-.recipe-card h1 {
+.quote-card h1 {
   margin: 0;
 }
 
@@ -275,4 +277,5 @@ justify-content: space-between;
 
 .quote-buttons {
   margin-top: .5rem;
+  text-align: end;
 }
