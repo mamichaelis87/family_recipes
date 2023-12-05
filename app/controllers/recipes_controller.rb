@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
     unless ids.empty?
       @quote = Quote.find(ids.sample)
     end
+    @new_recipes = Recipe.last(5)
   end
 
   def show
