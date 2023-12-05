@@ -5,12 +5,12 @@
       <div>
         <p class="stitch-font quote">"<%= quote.body.upcase %>"</p>
       </div>
-      <div class="quote-buttons">
-        <%= link_to "Edit Wititude", edit_quote_path(quote), class: "button" %>
+      <div>
+        <%= button_to "Edit Wititude", edit_quote_path(quote), method: :get, class: "button" %>
       </div>
     <% end %>
     <div class="quote-buttons">
-      <%= link_to "Add New Wititude", new_quote_path, class: "button" %>
+      <%= button_to "Add New Wititude", new_quote_path, method: :get, class: "button" %>
     </div>
   </div>
 </div>
