@@ -25,6 +25,7 @@
     <%= form.number_field :servings, class: "text-input" %>
   </div>
   <h3>Ingredients</h3>
+  <p>Enter ingredient amounts in approximate decimals. For example, .33 for 1/3, .125 for 1/8, etc.</p>
   <div data-ingredients-and-steps-target="ingredientList">
     <%= form.fields_for :ingredients do |ingredients_form|%>
       <template data-ingredients-and-steps-target="ingredientTemplate">
@@ -35,7 +36,7 @@
             <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
             <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input" %>
             <%= ingredients_form.label :measurement_type, "Unit" %>
-            <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "quantity"], class: "text-input" %>
+            <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity"], class: "text-input" %>
           </div>
         </div>
       </template>
@@ -46,7 +47,7 @@
           <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
           <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input" %>
           <%= ingredients_form.label :measurement_type, "Unit" %>
-          <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "quantity"], class: "text-input" %>
+          <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity"], class: "text-input" %>
         </div>
       </div>
     <% end %>

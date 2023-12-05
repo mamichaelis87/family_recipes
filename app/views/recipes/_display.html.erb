@@ -24,10 +24,10 @@
                   <%= i.measurement_amount.to_i %>
                 <% elsif i.measurement_amount < 1 %>
                   <% amount = i.measurement_amount.divmod 1 %>
-                  <%= amount[1].to_r %>
+                  <%= amount[1].to_r.rationalize(0.05) %>
                 <% else %>
                   <% amount = i.measurement_amount.divmod 1 %>
-                  <%= amount[0].to_i %> <%= amount[1].to_r %>
+                  <%= amount[0].to_i %> <%= amount[1].to_r.rationalize(0.01) %>
                 <% end %>
               <% end %> 
               <%= i.measurement_type %>
