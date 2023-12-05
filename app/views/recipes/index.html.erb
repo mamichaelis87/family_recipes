@@ -15,5 +15,8 @@
       <% end %>
     </ul>
   </div>
-  <%= render "quotes/quote_display", :quote => @quote %>
+  <div>
+    <div class="container"><%= render "quotes/quote_display", :quote => @quote %></div>
+    <div class="container"><%= render "recipes/new_recipes", :new_recipes => @new_recipes %></div>
+  </div>
 </div>

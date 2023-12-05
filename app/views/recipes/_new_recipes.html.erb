@@ -1,0 +1,8 @@
+<div class="recipe-display bg-primary">
+  <h3 class="stitch-font">NEWLY ADDED RECIPES</h3>
+  <% @new_recipes.each do |recipe| %>
+    <div>
+      <%= link_to recipe.name, recipe_path(recipe) %>
+    </div>
+  <% end %>
+</div>
