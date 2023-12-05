@@ -7,7 +7,7 @@
     <% end %></span>
     <span class="culture-type"><p><%= recipe.culture %> <%= recipe.meal_type %></p></span>
     <span class="servings"><p><%= recipe.servings.to_i %> servings</p></span>
-    <span class="edit-link"><%= link_to "Edit Recipe", edit_recipe_path(recipe) %></span>
+    <span class="edit-link"><%= button_to "Edit Recipe", edit_recipe_path(recipe), method: :get %></span>
   </div>
   <div class="recipe">
     <div class="recipe-ingredients">
