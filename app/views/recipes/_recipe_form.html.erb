@@ -74,6 +74,10 @@
     <button type="button" data-action="ingredients-and-steps#addStep">Add Step</button>
     <button type="button" data-action="ingredients-and-steps#removeStep">Remove Step</button>
   </div>
+  <div class="file-upload">
+    <%= form.label "Recipe Photo" %>
+    <%= form.file_field :image %>
+  </div>
 <%= form.submit "Save Recipe", class: "button" %>
 <% end %>
 
