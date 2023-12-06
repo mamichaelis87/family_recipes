@@ -46,3 +46,6 @@
     </div>
   </div>
 </div>
+<% if recipe.images.attached? %>
+  <img src="<%(url_for(recipe.images.first))%>">
+<% end %>
