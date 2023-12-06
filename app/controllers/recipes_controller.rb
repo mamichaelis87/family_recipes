@@ -54,6 +54,7 @@ class RecipesController < ApplicationController
     unless @recipe.user_id
       @recipe.user_id = current_user.id
     end
+    @recipe.images.attach(params[:recipe][:image])
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
