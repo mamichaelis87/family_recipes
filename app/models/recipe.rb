@@ -4,4 +4,5 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, :steps
   belongs_to :user
   has_many :comments
+  has_many_attached :images
 end
