@@ -5,4 +5,10 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many_attached :images
+
+  def images_as_thumbnails
+    images.map do |img|
+      img.variant(resize_to_limit: [300,300]).processed
+    end
+  end
 end

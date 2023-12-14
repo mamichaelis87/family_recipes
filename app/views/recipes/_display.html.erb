@@ -47,7 +47,7 @@
   </div>
 </div>
 <% if recipe.images.attached? %>
-  <% recipe.images.each do |img| %>
-    <%= image_tag img.representation(resize_to_limit: [100, 100]) %>
+  <% recipe.images_as_thumbnails.each do |img| %>
+    <%= link_to image_tag(img), img %>
   <% end %>
 <% end %>
