@@ -1,11 +1,11 @@
 <div class="container">
   <%= render "recipes/display", :recipe => @recipe %>
 </div>
-<div class="flex-container bg-primary">
-  <div class="container">
+<div class="flex-container">
+  <div class="container comments-container">
     <%= render "recipes/comments", :recipe => @recipe, :new_comment => @new_comment %>
   </div>
-  <div class="container">
+  <div class="images container">
     <%= render "recipes/images", :recipe => @recipe %>
   </div>
 </div>
