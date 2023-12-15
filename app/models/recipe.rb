@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
 
   def images_as_thumbnails
     images.map do |img|
-      img.variant(resize_to_limit: [300,300]).processed
+      img.variant(resize_to_limit: [450,450]).processed
     end
   end
 end
