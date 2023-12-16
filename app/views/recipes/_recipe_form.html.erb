@@ -74,12 +74,13 @@
     <button type="button" data-action="ingredients-and-steps#addStep">Add Step</button>
     <button type="button" data-action="ingredients-and-steps#removeStep">Remove Step</button>
   </div>
+  <p>Note: Adding pictures for the recipe card and/or recipe image will replace old pictures.</p>
   <div class="file-upload">
-    <%= form.label "Recipe Card" %>
+    <%= form.label "Recipe Card:" %>
     <%= form.file_field :recipe_card %>
   </div>
   <div class="file-upload">
-    <%= form.label "Recipe Image" %>
+    <%= form.label "Recipe Image:" %>
     <%= form.file_field :image %>
   </div>
 <%= form.submit "Save Recipe", class: "button" %>

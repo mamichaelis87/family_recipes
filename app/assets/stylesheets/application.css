@@ -294,3 +294,7 @@ justify-content: space-between;
   margin-top: .5rem;
   text-align: end;
 }
+
+.file-upload {
+  margin-bottom: .5rem;
+}
