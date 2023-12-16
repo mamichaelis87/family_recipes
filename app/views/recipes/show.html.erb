@@ -6,9 +6,9 @@
     <%= render "recipes/comments", :recipe => @recipe, :new_comment => @new_comment %>
   </div>
   <div class="images container">
-    <%= render "recipes/images", :recipe => @recipe %>
+    <%= render "recipes/recipe_card", :recipe => @recipe %>
   </div>
 </div>
 <div class="images container">
-  <%= render "recipes/recipe_card", :recipe => @recipe %>
+  <%= render "recipes/images", :recipe => @recipe %>
 </div>
