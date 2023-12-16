@@ -54,8 +54,9 @@ class RecipesController < ApplicationController
     unless @recipe.user_id
       @recipe.user_id = current_user.id
     end
-    @recipe.recipe_card.attach(params[:recipe][:recipe_card])
-    @recipe.image.attach(params[:recipe][:image])
+
+    add_pictures
+    
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -86,6 +87,15 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:user_id, :name, :meal_type, :culture, :protein, :servings, :author, :recipe_card, :image, ingredients_attributes: [:name, :measurement_amount, :measurement_type], steps_attributes: [:instructions])
+  end
+
+  def add_pictures
+    if params[:recipe][:recipe_card]
+      @recipe.recipe_card.attach(params[:recipe][:recipe_card])
+    end
+    if params[:recipe][:image]
+      @recipe.image.attach(params[:recipe][:image])
+    end
   end
 
 end
