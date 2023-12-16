@@ -1,7 +1,5 @@
 <div>
-  <% if recipe.images.attached? %>
-    <% recipe.images_as_thumbnails.each do |img| %>
-      <%= link_to image_tag(img), img %>
-    <% end %>
+  <% if recipe.image.attached? %>
+      <%= link_to image_tag(recipe.image), recipe.image_as_thumbnail %>
   <% end %>
 </div>

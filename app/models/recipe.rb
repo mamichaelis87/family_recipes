@@ -4,11 +4,14 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, :steps
   belongs_to :user
   has_many :comments
-  has_many_attached :images
+  has_one_attached :recipe_card
+  has_one_attached :image
 
-  def images_as_thumbnails
-    images.map do |img|
-      img.variant(resize_to_limit: [450,450]).processed
-    end
+  def image_as_thumbnail
+      imgage.variant(resize_to_limit: [450,450]).processed
   end
+
+  def recipe_card_as_thumbnail
+    imgage.variant(resize_to_limit: [450,450]).processed
+end
 end
