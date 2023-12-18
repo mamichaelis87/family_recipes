@@ -16,6 +16,7 @@
       <div class="container">
         <%= render "recipes/search_form" %>
       </div>
+      <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
     </div>
     <%= yield %>
   </body>
