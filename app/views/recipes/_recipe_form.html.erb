@@ -1,5 +1,8 @@
+<%# Recipe submission/edit form %>
+
 <div data-controller="ingredients-and-steps" data-ingredients-and-steps-ingredients-value="<%= recipe.ingredients.length %>" data-ingredients-and-steps-steps-value="<%= recipe.steps.length %>">
 <%= form_with model: recipe, id: "recipe-form" do |form| %>
+  <%# basic information about the recipe %>
   <div class="input-field">
     <%= form.label :name, "Name" %>
     <%= form.text_field :name, class: "text-input" %>
@@ -24,6 +27,7 @@
     <%= form.label :servings, "Number of Servings" %>
     <%= form.number_field :servings, class: "text-input" %>
   </div>
+  <%# inputs for adding ingredients to the recipe %>
   <h3>Ingredients</h3>
   <p>Enter ingredient amounts in approximate decimals. For example, .33 for 1/3, .125 for 1/8, etc.</p>
   <div data-ingredients-and-steps-target="ingredientList">
@@ -56,7 +60,7 @@
     <button type="button" data-action="ingredients-and-steps#addIngredient">Add Ingredient</button>
     <button type="button" data-action="ingredients-and-steps#removeIngredient">Remove Ingredient</button>
   </div>
-
+  <%# inputs for adding steps to the recipe %>
   <h3>Steps</h3>
   <ol data-ingredients-and-steps-target="stepList">
     <%= form.fields_for :steps do |steps_form|%>
@@ -74,6 +78,7 @@
     <button type="button" data-action="ingredients-and-steps#addStep">Add Step</button>
     <button type="button" data-action="ingredients-and-steps#removeStep">Remove Step</button>
   </div>
+  <%# inputs to add pictures to the recipe %>
   <p>Note: Adding pictures for the recipe card and/or recipe image will replace old pictures.</p>
   <div class="file-upload">
     <%= form.label "Recipe Card:" %>
@@ -89,6 +94,7 @@
 <div data-ingredients-and-steps-target="warning"></div>
 </div>
 
+<%# prevent 'enter' from submitting form (requested functionality from client) %>
 <script>
   document.getElementById("recipe-form").onkeypress = function(e) {
   var key = e.charCode || e.keyCode || 0;     
