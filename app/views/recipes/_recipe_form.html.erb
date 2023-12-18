@@ -1,5 +1,5 @@
 <div data-controller="ingredients-and-steps" data-ingredients-and-steps-ingredients-value="<%= recipe.ingredients.length %>" data-ingredients-and-steps-steps-value="<%= recipe.steps.length %>">
-<%= form_with model: recipe do |form| %>
+<%= form_with model: recipe, id: "recipe-form" do |form| %>
   <div class="input-field">
     <%= form.label :name, "Name" %>
     <%= form.text_field :name, class: "text-input" %>
@@ -88,3 +88,13 @@
 
 <div data-ingredients-and-steps-target="warning"></div>
 </div>
+
+<script>
+  document.getElementById("recipe-form").onkeypress = function(e) {
+  var key = e.charCode || e.keyCode || 0;     
+  if (key == 13) {
+    if (document.activeElement.tagName.toLowerCase() != 'textarea'){
+      e.preventDefault();
+    }
+  }}
+</script>
