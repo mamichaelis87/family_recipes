@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :new, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
   def index
     if params[:meal_type]
@@ -18,7 +18,9 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @new_comment = current_user.comments.build
+    if user_signed_in?
+      @new_comment = current_user.comments.build
+    end
   end
 
   def new

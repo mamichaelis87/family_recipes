@@ -7,6 +7,7 @@
         <p class="comment-body"><%= c.body %></p>
       </li>
     <% end %>
+    <% if user_signed_in? %>
     <li class="comment">
       <%= form_with model: new_comment do |form| %>
         <p class="comment-body">
@@ -17,5 +18,6 @@
         <%= form.submit "Submit Comment", class: "button" %>
       <% end %>
     </li>
+    <% end %>
   </ul>
 </div>
