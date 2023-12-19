@@ -17,7 +17,9 @@
         <%= render "recipes/search_form" %>
       </div>
     </div>
+    <div class="content-cushion">
     <%= yield %>
+    </div>
     <footer class="footer bg-primary">
       <p>Copyright Michaelis Family 2023</p>
       <% if user_signed_in? %>

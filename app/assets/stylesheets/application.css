@@ -59,6 +59,11 @@ button:hover, .button:hover {
     transform: scale(1.05)
 }
 
+.content-cushion {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
