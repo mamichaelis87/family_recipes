@@ -31,6 +31,9 @@ body {
   color: black;
   font-family: sans-serif;
   line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a, a:focus, a:active {
@@ -67,6 +70,17 @@ padding: .5rem;
 box-shadow: 0 2px 2px rgba(0,0,0,0.4);
 display: flex;
 justify-content: space-between;
+}
+
+.footer {
+  margin-top: auto;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  box-shadow: 2px 0 2px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 1rem);
 }
 
 .text-input {

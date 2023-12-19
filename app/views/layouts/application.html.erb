@@ -16,8 +16,13 @@
       <div class="container">
         <%= render "recipes/search_form" %>
       </div>
-      <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
     </div>
     <%= yield %>
+    <footer class="footer bg-primary">
+      <p>Copyright Michaelis Family 2023</p>
+      <% if user_signed_in? %>
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+      <% end %>
+    </footer>
   </body>
 </html>
