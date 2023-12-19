@@ -13,5 +13,5 @@ class Recipe < ApplicationRecord
 
   def recipe_card_as_thumbnail
     recipe_card.variant(resize_to_limit: [450,nil]).processed
-end
+  end
 end
