@@ -1,6 +1,6 @@
 <div class="recipe-display bg-primary">
   <div class="recipe-info">
-    <span class="name"><h1 class="recipe-name stitch-font"><%= link_to recipe.name.upcase, recipe_path(recipe) %></h1></span>
+    <span class="name"><h1 class="recipe-name stitch-font"><%= recipe.name.upcase %></h1></span>
     <span class="author">
     <% unless recipe.author == "" %>
       <p>A recipe from <%= recipe.author %></p>
