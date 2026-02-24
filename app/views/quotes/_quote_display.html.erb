@@ -1,9 +1,9 @@
 <div class="quote-card bg-primary">
-  <p class="stitch-font welcome">HEY MOM! WELCOME TO YOUR WEBSITE, HOPE YOU ENJOY IT :)</p>
+  <p class="welcome">HEY MOM! WELCOME TO YOUR WEBSITE, HOPE YOU ENJOY IT :)</p>
   <div class="quote-display">
     <% if quote %>
       <div>
-        <p class="stitch-font quote">"<%= quote.body.upcase %>"</p>
+        <p class="quote">"<%= quote.body.upcase %>"</p>
       </div>
       <div class="quote-buttons">
         <%= button_to "Edit Wititude", edit_quote_path(quote), method: :get, class: "button" %>

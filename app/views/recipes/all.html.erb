@@ -3,14 +3,14 @@
     <div class="all-buttons-container">
       <%= render "recipes/meal_types", :path => "/all_recipes/" %>
     </div>
-    <h3 class="stitch-font">RECIPES</h3>
+    <h3>RECIPES</h3>
     <ul class="searched-recipes">
       <% @recipes.each do |recipe| %>
         <li><%= link_to recipe.name, recipe_path(recipe) %></li>
       <% end %>
     </ul>
     <% if @ingredients %>
-      <h3 class="stitch-font">INGREDIENTS</h3>
+      <h3>INGREDIENTS</h3>
       <ul class="searched-ingredients">
         <% @ingredients.each do |ing| %>
           <li>

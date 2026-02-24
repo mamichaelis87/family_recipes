@@ -8,14 +8,15 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <div class="header bg-primary">
-      <h1 class="stitch-font"><%= link_to "MICHAELIS' FAMILY RECIPES", root_path %></h1>
-      <div class="container">
-        <%= render "recipes/search_form" %>
-      </div>
+      <h1><%= link_to "Michaelis' Family Recipes", root_path %></h1>
+      <%= render "recipes/search_form" %>
     </div>
     <div class="content-cushion">
     <%= yield %>
