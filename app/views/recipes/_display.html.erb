@@ -1,48 +1,35 @@
-<div class="recipe-display bg-primary">
-  <div class="recipe-info">
-    <span class="name"><h1 class="recipe-name"><%= recipe.name.upcase %></h1></span>
-    <span class="author">
-    <% unless recipe.author == "" %>
-      <p>A recipe from <%= recipe.author %></p>
-    <% end %></span>
-    <span class="culture-type"><p><%= recipe.culture %> <%= recipe.meal_type %></p></span>
-    <span class="servings"><p><%= recipe.servings.to_i %> servings</p></span>
-    <span class="edit-link"><%= button_to "Edit Recipe", edit_recipe_path(recipe), method: :get %></span>
+<div class="recipe-columns">
+  <div class="recipe-ingredients-col">
+    <h4 class="form-section-title">Ingredients</h4>
+    <ul class="ingredient-list">
+      <% recipe.ingredients.each do |i| %>
+        <li class="ingredient">
+          <div class="ingredient-name"><%= i.name %></div>
+          <div class="ingredient-measurement">
+            <% if i.measurement_amount %>
+              <% if i.measurement_amount % 1 == 0 %>
+                <%= i.measurement_amount.to_i %>
+              <% elsif i.measurement_amount < 1 %>
+                <% amount = i.measurement_amount.divmod 1 %>
+                <%= amount[1].to_r.rationalize(0.05) %>
+              <% else %>
+                <% amount = i.measurement_amount.divmod 1 %>
+                <%= amount[0].to_i %> <%= amount[1].to_r.rationalize(0.01) %>
+              <% end %>
+            <% end %>
+            <%= i.measurement_type %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
-  <div class="recipe">
-    <div class="recipe-ingredients">
-      <h3>INGREDIENTS</h3>
-      <ul class="ingredient-list">
-        <% recipe.ingredients.each do |i| %>
-          <li class="ingredient">
-            <div class="ingredient-name">
-              <%= i.name %>
-            </div>
-            <div class="ingredient-measurement">
-              <% if i.measurement_amount %>
-                <% if i.measurement_amount % 1 == 0 %>
-                  <%= i.measurement_amount.to_i %>
-                <% elsif i.measurement_amount < 1 %>
-                  <% amount = i.measurement_amount.divmod 1 %>
-                  <%= amount[1].to_r.rationalize(0.05) %>
-                <% else %>
-                  <% amount = i.measurement_amount.divmod 1 %>
-                  <%= amount[0].to_i %> <%= amount[1].to_r.rationalize(0.01) %>
-                <% end %>
-              <% end %> 
-              <%= i.measurement_type %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="recipe-steps">
-      <h3>STEPS</h3>
-      <ol class="step-list-box">
-        <% recipe.steps.each do |s| %>
-          <li class="step-box"><%= s.instructions %></li>
-        <% end %>
-      </ol>
-    </div>
+
+  <div class="recipe-steps-col">
+    <h4 class="form-section-title">Steps</h4>
+    <ol class="recipe-steps-list">
+      <% recipe.steps.each do |s| %>
+        <li class="recipe-step-item"><%= s.instructions %></li>
+      <% end %>
+    </ol>
   </div>
 </div>

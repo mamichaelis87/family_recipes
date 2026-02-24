@@ -1,15 +1,50 @@
-<div class="container">
-  <%= render "recipes/display", :recipe => @recipe %>
-</div>
-<div class="flex-container">
-  <div class="images container">
-    <%= render "recipes/recipe_card", :recipe => @recipe %>
+<div class="recipe-page">
+  <div class="recipe-page-header">
+    <div>
+      <h2><%= @recipe.name %></h2>
+      <div class="recipe-meta-tags">
+        <% unless @recipe.author.blank? %>
+          <span class="recipe-meta-tag">By <%= @recipe.author %></span>
+        <% end %>
+        <% unless @recipe.culture.blank? %>
+          <span class="recipe-meta-tag"><%= @recipe.culture %></span>
+        <% end %>
+        <span class="recipe-meta-tag"><%= @recipe.meal_type %></span>
+        <span class="recipe-meta-tag"><%= @recipe.servings.to_i %> servings</span>
+        <% unless @recipe.protein.blank? || @recipe.protein == "None" %>
+          <span class="recipe-meta-tag"><%= @recipe.protein %></span>
+        <% end %>
+      </div>
+    </div>
+    <%= button_to "Edit Recipe", edit_recipe_path(@recipe), method: :get, class: "button" %>
   </div>
-  <div class="images container">
-    <%= render "recipes/images", :recipe => @recipe %>
-  </div>
-  <div class="container comments-container">
-    <%= render "recipes/comments", :recipe => @recipe, :new_comment => @new_comment %>
-  </div>
-</div>
 
+  <div class="recipe-page-content">
+    <div class="bg-primary form">
+      <%= render "recipes/display", :recipe => @recipe %>
+    </div>
+
+    <% if @recipe.recipe_card.attached? || @recipe.image.attached? %>
+      <div class="bg-primary form">
+        <div class="recipe-photos-row">
+          <% if @recipe.image.attached? %>
+            <div class="recipe-photo-item">
+              <h4 class="form-section-title">Food Photo</h4>
+              <%= link_to image_tag(@recipe.image, style: "max-width: 450px; height: auto;"), @recipe.image %>
+            </div>
+          <% end %>
+          <% if @recipe.recipe_card.attached? %>
+            <div class="recipe-photo-item">
+              <h4 class="form-section-title">Original Recipe Card</h4>
+              <%= link_to image_tag(@recipe.recipe_card, style: "max-width: 450px; height: auto;"), @recipe.recipe_card %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="bg-primary form">
+      <%= render "recipes/comments", :recipe => @recipe, :new_comment => @new_comment %>
+    </div>
+  </div>
+</div>

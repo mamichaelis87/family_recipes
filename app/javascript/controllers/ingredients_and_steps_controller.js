@@ -11,13 +11,13 @@ export default class extends Controller {
   addIngredient() {
     console.log("add ingredient")
     const clone = this.ingredientTemplateTarget.content.cloneNode(true)
-    clone.querySelector("div>:nth-child(2)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][name]`)
-    clone.querySelector("div>:nth-child(4)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][measurement_amount]`)
-    clone.querySelector("div>:nth-child(6)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][measurement_type]`)
-    
+    clone.querySelector("div>:nth-child(1)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][name]`)
+    clone.querySelector("div>:nth-child(2)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][measurement_amount]`)
+    clone.querySelector("div>:nth-child(3)").setAttribute("name",`recipe[ingredients_attributes][${this.ingredientsValue}][measurement_type]`)
+
+    clone.querySelector("div>:nth-child(1)").setAttribute("value", "")
     clone.querySelector("div>:nth-child(2)").setAttribute("value", "")
-    clone.querySelector("div>:nth-child(4)").setAttribute("value", "")
-    clone.querySelector("div>:nth-child(6)").setAttribute("value", "")
+    clone.querySelector("div>:nth-child(3)").setAttribute("value", "")
     
     this.ingredientListTarget.appendChild(clone)
     this.ingredientsValue++

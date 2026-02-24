@@ -21,5 +21,6 @@ module FamilyRecipes
 
     config.assets.enabled = true
     config.assets.paths << Rails.root.join('/app/assets/fonts')
+    config.active_storage.variant_processor = :mini_magick
   end
 end

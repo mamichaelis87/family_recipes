@@ -1,23 +1,29 @@
-<div class="comments bg-primary">
-  <h4>COMMENTS:</h4>
-  <ul>
+<h4 class="form-section-title">Comments</h4>
+
+<% if recipe.comments.any? %>
+  <ul class="comment-list">
     <% recipe.comments.each do |c| %>
-      <li class="comment">
-        <p class="comment-user"><strong><%= c.user.email %></strong></p>
+      <li class="comment-item">
+        <span class="comment-user"><%= c.user.email %></span>
         <p class="comment-body"><%= c.body %></p>
       </li>
     <% end %>
-    <% if user_signed_in? %>
-    <li class="comment">
-      <%= form_with model: new_comment do |form| %>
-        <p class="comment-body">
-          <%= form.text_area :body, size: "30x2", placeholder: "Have thoughts?", class: "text-input" %>
-        </p>
-        <%= form.hidden_field :recipe_id, value: recipe.id %>
-        <%= form.hidden_field :user_id, value: current_user.id %>
-        <%= form.submit "Submit Comment", class: "button" %>
-      <% end %>
-    </li>
-    <% end %>
   </ul>
-</div>
+<% else %>
+  <p class="form-hint">No comments yet.</p>
+<% end %>
+
+<% if user_signed_in? %>
+  <div class="comment-form">
+    <%= form_with model: new_comment do |form| %>
+      <%= form.text_area :body, class: "text-input comment-input", placeholder: "Leave a comment..." %>
+      <%= form.hidden_field :recipe_id, value: recipe.id %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <div class="comment-submit">
+        <%= form.submit "Submit Comment", class: "button" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="form-hint"><%= link_to "Sign in", new_user_session_path %> to leave a comment.</p>
+<% end %>

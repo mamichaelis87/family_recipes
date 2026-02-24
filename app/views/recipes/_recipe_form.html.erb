@@ -2,93 +2,110 @@
 
 <div data-controller="ingredients-and-steps" data-ingredients-and-steps-ingredients-value="<%= recipe.ingredients.length %>" data-ingredients-and-steps-steps-value="<%= recipe.steps.length %>">
 <%= form_with model: recipe, id: "recipe-form" do |form| %>
-  <%# basic information about the recipe %>
-  <div class="input-field">
-    <%= form.label :name, "Name" %>
-    <%= form.text_field :name, class: "text-input" %>
-  </div>
-  <div class="input-field">
-    <%= form.label :author, "Author" %>
-    <%= form.text_field :author, class: "text-input" %>
-  </div>
-  <div class="input-field">
-    <%= form.label :meal_type, "Type" %>
-    <%= form.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Bread/Baked Goods", "Drink", "Cocktail"] %>
-  </div>
-  <div class="input-field">
-    <%= form.label :protein, "Protein" %>
-    <%= form.select :protein, ["Poultry", "Red Meat", "Seafood", "Vegetarian", "None"] %>
-  </div>
-  <div class="input-field">
-    <%= form.label :culture, "Culture" %>
-    <%= form.text_field :culture, class: "text-input" %>
-  </div>
-  <div class="input-field">
-    <%= form.label :servings, "Number of Servings" %>
-    <%= form.number_field :servings, class: "text-input" %>
-  </div>
-  <%# inputs for adding ingredients to the recipe %>
-  <h3>Ingredients</h3>
-  <p>Enter ingredient amounts in approximate decimals. For example, .33 for 1/3, .125 for 1/8, etc.</p>
-  <div data-ingredients-and-steps-target="ingredientList">
-    <%= form.fields_for :ingredients do |ingredients_form|%>
-      <template data-ingredients-and-steps-target="ingredientTemplate">
-        <div class="input-field" data-ingredients-and-steps-target="ingredient">
-          <div>
-            <%= ingredients_form.label :name, "Name" %>
-            <%= ingredients_form.text_field :name, class: "text-input" %>
-            <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
-            <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input" %>
-            <%= ingredients_form.label :measurement_type, "Unit" %>
-            <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity"], class: "text-input" %>
-          </div>
-        </div>
-      </template>
-      <div class="input-field" data-ingredients-and-steps-target="ingredient">
-        <div>
-          <%= ingredients_form.label :name, "Name" %>
-          <%= ingredients_form.text_field :name, class: "text-input" %>
-          <%= ingredients_form.label :measurement_amount, "Measurement Amount" %>
-          <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input" %>
-          <%= ingredients_form.label :measurement_type, "Unit" %>
-          <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity"], class: "text-input" %>
-        </div>
+
+  <%# Section: Basic Info %>
+  <div class="form-section">
+    <h4 class="form-section-title">Basic Info</h4>
+    <div class="form-grid">
+      <div class="input-field">
+        <%= form.label :name, "Recipe Name" %>
+        <%= form.text_field :name, class: "text-input", placeholder: "e.g. Grandma's Lasagna" %>
       </div>
-    <% end %>
+      <div class="input-field">
+        <%= form.label :author, "Author" %>
+        <%= form.text_field :author, class: "text-input", placeholder: "Who made this?" %>
+      </div>
+      <div class="input-field">
+        <%= form.label :meal_type, "Meal Type" %>
+        <%= form.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert", "Bread/Baked Goods", "Drink", "Cocktail"], {}, class: "text-input" %>
+      </div>
+      <div class="input-field">
+        <%= form.label :protein, "Protein" %>
+        <%= form.select :protein, ["Poultry", "Red Meat", "Seafood", "Vegetarian", "None"], {}, class: "text-input" %>
+      </div>
+      <div class="input-field">
+        <%= form.label :culture, "Cuisine / Culture" %>
+        <%= form.text_field :culture, class: "text-input", placeholder: "e.g. Italian, Mexican..." %>
+      </div>
+      <div class="input-field">
+        <%= form.label :servings, "Servings" %>
+        <%= form.number_field :servings, class: "text-input", placeholder: "How many does it serve?" %>
+      </div>
+    </div>
   </div>
-  <div>
-    <button type="button" data-action="ingredients-and-steps#addIngredient">Add Ingredient</button>
-    <button type="button" data-action="ingredients-and-steps#removeIngredient">Remove Ingredient</button>
+
+  <%# Section: Ingredients %>
+  <div class="form-section">
+    <h4 class="form-section-title">Ingredients</h4>
+    <p class="form-hint">Enter amounts as decimals — e.g. .33 for ⅓, .125 for ⅛</p>
+    <div class="ingredient-list-header">
+      <span>Ingredient</span>
+      <span>Amount</span>
+      <span>Unit</span>
+    </div>
+    <div data-ingredients-and-steps-target="ingredientList">
+      <%= form.fields_for :ingredients do |ingredients_form| %>
+        <template data-ingredients-and-steps-target="ingredientTemplate">
+          <div class="ingredient-row" data-ingredients-and-steps-target="ingredient">
+            <%= ingredients_form.text_field :name, class: "text-input", placeholder: "Ingredient name" %>
+            <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input ingredient-amount", placeholder: "0" %>
+            <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity"], {}, class: "text-input ingredient-unit" %>
+          </div>
+        </template>
+        <div class="ingredient-row" data-ingredients-and-steps-target="ingredient">
+          <%= ingredients_form.text_field :name, class: "text-input", placeholder: "Ingredient name" %>
+          <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input ingredient-amount", placeholder: "0" %>
+          <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity"], {}, class: "text-input ingredient-unit" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="form-actions-row">
+      <button type="button" data-action="ingredients-and-steps#addIngredient">+ Add Ingredient</button>
+      <button type="button" class="button-ghost" data-action="ingredients-and-steps#removeIngredient">Remove Last</button>
+    </div>
   </div>
-  <%# inputs for adding steps to the recipe %>
-  <h3>Steps</h3>
-  <ol data-ingredients-and-steps-target="stepList">
-    <%= form.fields_for :steps do |steps_form|%>
-    <template data-ingredients-and-steps-target="stepTemplate">
-      <li class="input-field" data-ingredients-and-steps-target="step">
-        <%= steps_form.text_area :instructions, size: "40x5", class: "text-input" %>
-      </li>
-    </template>
-    <li class="input-field" data-ingredients-and-steps-target="step">
-      <%= steps_form.text_area :instructions, size: "40x5", class: "text-input" %>
-    </li>
-    <% end %>
-  </ol>
-  <div>
-    <button type="button" data-action="ingredients-and-steps#addStep">Add Step</button>
-    <button type="button" data-action="ingredients-and-steps#removeStep">Remove Step</button>
+
+  <%# Section: Steps %>
+  <div class="form-section">
+    <h4 class="form-section-title">Steps</h4>
+    <ol class="steps-list" data-ingredients-and-steps-target="stepList">
+      <%= form.fields_for :steps do |steps_form| %>
+        <template data-ingredients-and-steps-target="stepTemplate">
+          <li data-ingredients-and-steps-target="step">
+            <%= steps_form.text_area :instructions, class: "text-input step-input", placeholder: "Describe this step..." %>
+          </li>
+        </template>
+        <li data-ingredients-and-steps-target="step">
+          <%= steps_form.text_area :instructions, class: "text-input step-input", placeholder: "Describe this step..." %>
+        </li>
+      <% end %>
+    </ol>
+    <div class="form-actions-row">
+      <button type="button" data-action="ingredients-and-steps#addStep">+ Add Step</button>
+      <button type="button" class="button-ghost" data-action="ingredients-and-steps#removeStep">Remove Last</button>
+    </div>
   </div>
-  <%# inputs to add pictures to the recipe %>
-  <p>Note: Adding pictures for the recipe card and/or recipe image will replace old pictures.</p>
-  <div class="file-upload">
-    <%= form.label "Recipe Card:" %>
-    <%= form.file_field :recipe_card %>
+
+  <%# Section: Photos %>
+  <div class="form-section">
+    <h4 class="form-section-title">Photos</h4>
+    <p class="form-hint">Adding a new photo will replace the existing one.</p>
+    <div class="file-upload-row">
+      <div class="file-upload">
+        <%= form.label :recipe_card, "Recipe Card" %>
+        <%= form.file_field :recipe_card %>
+      </div>
+      <div class="file-upload">
+        <%= form.label :image, "Recipe Image" %>
+        <%= form.file_field :image %>
+      </div>
+    </div>
   </div>
-  <div class="file-upload">
-    <%= form.label "Recipe Image:" %>
-    <%= form.file_field :image %>
+
+  <div class="form-submit">
+    <%= form.submit "Save Recipe", class: "button button-lg" %>
   </div>
-<%= form.submit "Save Recipe", class: "button" %>
+
 <% end %>
 
 <div data-ingredients-and-steps-target="warning"></div>
@@ -97,7 +114,7 @@
 <%# prevent 'enter' from submitting form (requested functionality from client) %>
 <script>
   document.getElementById("recipe-form").onkeypress = function(e) {
-  var key = e.charCode || e.keyCode || 0;     
+  var key = e.charCode || e.keyCode || 0;
   if (key == 13) {
     if (document.activeElement.tagName.toLowerCase() != 'textarea'){
       e.preventDefault();

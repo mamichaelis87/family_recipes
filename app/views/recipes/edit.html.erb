@@ -1,11 +1,14 @@
 <% flash.each do |type, msg| %>
-  <div>
+  <div class="flash-message">
     <%= msg %>
   </div>
 <% end %>
-<div class="container">
+<div class="form-page">
+  <div class="form-page-header">
+    <h2>Edit Recipe</h2>
+    <p><%= @recipe.name %></p>
+  </div>
   <div class="bg-primary form">
-    <h2>Edit Recipe For <%= @recipe.name %></h2>
     <%= render "recipes/recipe_form", :recipe => @recipe %>
   </div>
 </div>
