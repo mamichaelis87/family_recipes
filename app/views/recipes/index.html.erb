@@ -1,21 +1,17 @@
-<div class="recipes container">
-  <div class="recipe-choices bg-primary">
-    <div class="recipe-choices-header">
-      <h3><%= link_to "RECIPES", all_recipes_path %></h3>
-      <div class="container">
-        <%= button_to "Add a recipe", new_recipe_path, method: :get %>
+<div class="recipe-page">
+  <div class="recipe-page-content">
+    <%= render "quotes/quote_display", :quote => @quote %>
+    <div class="bg-primary form">
+      <div class="home-list-header">
+        <h4 class="form-section-title">Recipes</h4>
+        <%= button_to "Add a Recipe", new_recipe_path, method: :get %>
       </div>
-    </div>
-    <div class="meal-types">
       <%= render "recipes/meal_types", :path => recipes_path %>
+      <ul class="recipe-list recipe-list-home">
+        <% @recipes.each do |recipe| %>
+          <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+        <% end %>
+      </ul>
     </div>
-    <ul class="recipe-list">
-      <% @recipes.each do |recipe| %>
-        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div>
-    <div class="container"><%= render "quotes/quote_display", :quote => @quote %></div>
   </div>
 </div>

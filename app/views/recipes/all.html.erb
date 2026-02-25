@@ -1,23 +1,27 @@
-<div class="container">
-  <div class="bg-primary search-output">
-    <div class="all-buttons-container">
+<div class="recipe-page">
+  <div class="recipe-page-header">
+    <h2>Search Recipes</h2>
+    <%= render "recipes/search_form" %>
+  </div>
+  <div class="recipe-page-content">
+    <div class="bg-primary form">
       <%= render "recipes/meal_types", :path => "/all_recipes/" %>
-    </div>
-    <h3>RECIPES</h3>
-    <ul class="searched-recipes">
-      <% @recipes.each do |recipe| %>
-        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-      <% end %>
-    </ul>
-    <% if @ingredients %>
-      <h3>INGREDIENTS</h3>
-      <ul class="searched-ingredients">
-        <% @ingredients.each do |ing| %>
-          <li>
-            <%= link_to "#{ing.recipe.name} (#{ing.name})", recipe_path(ing.recipe) %>
-          </li>
+      <div class="search-results">
+        <h4 class="form-section-title">Recipes</h4>
+        <ul class="recipe-list">
+          <% @recipes.each do |recipe| %>
+            <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+          <% end %>
+        </ul>
+        <% if @ingredients %>
+          <h4 class="form-section-title search-results-subheader">Ingredients</h4>
+          <ul class="recipe-list">
+            <% @ingredients.each do |ing| %>
+              <li><%= link_to "#{ing.recipe.name} (#{ing.name})", recipe_path(ing.recipe) %></li>
+            <% end %>
+          </ul>
         <% end %>
-      </ul>
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>
