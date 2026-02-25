@@ -414,7 +414,7 @@ button:hover, .button:hover {
   border-bottom: 1px solid var(--border);
 }
 
-.form-section:last-of-type {
+.form-section:has(+ .form-submit) {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -572,7 +572,6 @@ select.text-input {
   display: flex;
   justify-content: flex-end;
   padding-top: 1rem;
-  border-top: 1px solid var(--border);
   margin-top: 1.75rem;
 }
 
@@ -756,4 +755,122 @@ select.text-input {
 .comment-submit {
   display: flex;
   justify-content: flex-end;
+}
+
+/* ── Mobile responsiveness ── */
+
+@media (max-width: 640px) {
+  /* Header: stack title above search form */
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .6rem;
+    padding: .75rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+  }
+
+  .search-form {
+    width: 100%;
+  }
+
+  .search-input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Footer: stack on narrow screens */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .25rem;
+    width: calc(100% - 2rem);
+    padding: .75rem 1rem;
+  }
+
+  /* Page containers: tighter padding */
+  .recipe-page {
+    padding: 1rem .5rem;
+  }
+
+  .form-page {
+    padding: 1rem .5rem;
+  }
+
+  /* Recipe/search page header: stack title and button/form */
+  .recipe-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .recipe-page-header h2 {
+    font-size: 1.4rem;
+  }
+
+  /* Show page: stack ingredients and steps vertically */
+  .recipe-columns {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .recipe-ingredients-col {
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .recipe-steps-col {
+    padding-left: 0;
+  }
+
+  /* Quote: smaller on mobile */
+  .quote {
+    font-size: 1.3rem;
+  }
+
+  /* New/edit form: single column */
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ingredient rows: name takes full width, amount+unit share next row */
+  .ingredient-list-header {
+    display: none;
+  }
+
+  .ingredient-row {
+    flex-wrap: wrap;
+    padding-top: .75rem;
+    padding-bottom: 1rem;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ingredient-row:first-of-type {
+    padding-top: 0;
+  }
+
+  .ingredient-row:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .ingredient-row > input[type="text"] {
+    flex: 1 1 100%;
+  }
+
+  .ingredient-amount {
+    flex: 1 1 auto !important;
+    width: auto;
+  }
+
+  .ingredient-unit {
+    flex: 2 1 auto !important;
+    width: auto;
+  }
 }
