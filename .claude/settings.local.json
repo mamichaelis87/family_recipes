@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git -C \"c:/Users/Auto/Documents/Family Recipes/family_recipes\" show --stat ec9c6f5 b5e90e7 cf242e8)",
       "Bash(git -C \"c:/Users/Auto/Documents/Family Recipes/family_recipes\" show cf242e8 -- config/database.yml config/environments/development.rb)",
-      "Bash(bundle install)"
+      "Bash(bundle install)",
+      "Bash(xargs ls)"
     ]
   }
 }

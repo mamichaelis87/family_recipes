@@ -49,13 +49,13 @@
           <div class="ingredient-row" data-ingredients-and-steps-target="ingredient">
             <%= ingredients_form.text_field :name, class: "text-input", placeholder: "Ingredient name" %>
             <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input ingredient-amount", placeholder: "0" %>
-            <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity"], {}, class: "text-input ingredient-unit" %>
+            <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity", "To Taste", ["(None)", ""]], {}, class: "text-input ingredient-unit" %>
           </div>
         </template>
         <div class="ingredient-row" data-ingredients-and-steps-target="ingredient">
           <%= ingredients_form.text_field :name, class: "text-input", placeholder: "Ingredient name" %>
           <%= ingredients_form.number_field :measurement_amount, step: :any, class: "text-input ingredient-amount", placeholder: "0" %>
-          <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity"], {}, class: "text-input ingredient-unit" %>
+          <%= ingredients_form.select :measurement_type, ["cups", "oz", "Tbsp", "tsp", "lb", "g", "L", "mL", "cans", "quantity", "To Taste", ["(None)", ""]], {}, class: "text-input ingredient-unit" %>
         </div>
       <% end %>
     </div>

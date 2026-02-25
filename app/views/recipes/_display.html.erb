@@ -6,18 +6,22 @@
         <li class="ingredient">
           <div class="ingredient-name"><%= i.name %></div>
           <div class="ingredient-measurement">
-            <% if i.measurement_amount %>
-              <% if i.measurement_amount % 1 == 0 %>
-                <%= i.measurement_amount.to_i %>
-              <% elsif i.measurement_amount < 1 %>
-                <% amount = i.measurement_amount.divmod 1 %>
-                <%= amount[1].to_r.rationalize(0.05) %>
-              <% else %>
-                <% amount = i.measurement_amount.divmod 1 %>
-                <%= amount[0].to_i %> <%= amount[1].to_r.rationalize(0.01) %>
+            <% if i.measurement_type == "To Taste" %>
+              To Taste
+            <% elsif i.measurement_type.present? %>
+              <% if i.measurement_amount %>
+                <% if i.measurement_amount % 1 == 0 %>
+                  <%= i.measurement_amount.to_i %>
+                <% elsif i.measurement_amount < 1 %>
+                  <% amount = i.measurement_amount.divmod 1 %>
+                  <%= amount[1].to_r.rationalize(0.05) %>
+                <% else %>
+                  <% amount = i.measurement_amount.divmod 1 %>
+                  <%= amount[0].to_i %> <%= amount[1].to_r.rationalize(0.01) %>
+                <% end %>
               <% end %>
+              <%= i.measurement_type %>
             <% end %>
-            <%= i.measurement_type %>
           </div>
         </li>
       <% end %>
