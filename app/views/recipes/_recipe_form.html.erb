@@ -72,11 +72,11 @@
       <%= form.fields_for :steps do |steps_form| %>
         <template data-ingredients-and-steps-target="stepTemplate">
           <li data-ingredients-and-steps-target="step">
-            <%= steps_form.text_area :instructions, class: "text-input step-input", placeholder: "Describe this step..." %>
+            <%= steps_form.text_area :instructions, class: "text-input step-input", placeholder: "Describe this step...", data: { action: "keydown->ingredients-and-steps#stepKeydown" } %>
           </li>
         </template>
         <li data-ingredients-and-steps-target="step">
-          <%= steps_form.text_area :instructions, class: "text-input step-input", placeholder: "Describe this step..." %>
+          <%= steps_form.text_area :instructions, class: "text-input step-input", placeholder: "Describe this step...", data: { action: "keydown->ingredients-and-steps#stepKeydown" } %>
         </li>
       <% end %>
     </ol>

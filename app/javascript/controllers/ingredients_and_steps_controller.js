@@ -47,6 +47,14 @@ export default class extends Controller {
     this.stepsValue++
   }
 
+  stepKeydown(event) {
+    if (event.key === "Enter") {
+      event.preventDefault()
+      this.addStep()
+      this.stepListTarget.lastElementChild.querySelector("textarea").focus()
+    }
+  }
+
   removeStep() {
     console.log("remove step")
     if (this.stepsValue > 1) {
