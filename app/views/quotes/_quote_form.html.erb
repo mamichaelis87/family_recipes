@@ -3,7 +3,6 @@
     <div>
       <%= form.text_area :body, size: "30x5", placeholder: "What's your wititude?", class: "text-input" %>
     </div>
-    <%= form.hidden_field :user_id, value: current_user.id %>
     <div>
       <%= form.submit "Save Wititude", class: "button" %>
     </div>

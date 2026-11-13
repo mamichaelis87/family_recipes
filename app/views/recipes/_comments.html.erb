@@ -18,7 +18,6 @@
     <%= form_with model: new_comment do |form| %>
       <%= form.text_area :body, class: "text-input comment-input", placeholder: "Leave a comment..." %>
       <%= form.hidden_field :recipe_id, value: recipe.id %>
-      <%= form.hidden_field :user_id, value: current_user.id %>
       <div class="comment-submit">
         <%= form.submit "Submit Comment", class: "button" %>
       </div>
