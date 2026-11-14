@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :all]
 
   def index
     if params[:meal_type]
@@ -88,7 +88,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:user_id, :name, :meal_type, :culture, :protein, :servings, :author, :recipe_card, :image, ingredients_attributes: [:name, :measurement_amount, :measurement_type], steps_attributes: [:instructions])
+    params.require(:recipe).permit(:name, :meal_type, :culture, :protein, :servings, :author, :recipe_card, :image, ingredients_attributes: [:name, :measurement_amount, :measurement_type], steps_attributes: [:instructions])
   end
 
   def add_pictures

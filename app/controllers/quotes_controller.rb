@@ -6,7 +6,7 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @quote = Quote.new(quote_params)
+    @quote = current_user.quotes.build(quote_params)
     if @quote.save
       redirect_to root_path
     else
@@ -33,6 +33,6 @@ class QuotesController < ApplicationController
   private
 
   def quote_params
-    params.require(:quote).permit(:body, :user_id)
+    params.require(:quote).permit(:body)
   end
 end
